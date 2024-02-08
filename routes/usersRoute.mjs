@@ -1,71 +1,54 @@
-// usersRoute.mjs
+// userRoute.mjs
 import express from 'express';
-import User from '../modules/user.mjs';
-import { HTTPCodes } from '../modules/httpConstants.mjs';
-import SuperLogger from '../modules/SuperLogger.mjs';
-import authenticateUser from '../modules/authMiddleware.mjs';
+import User from './userModel.mjs';
+import authenticateUser from './authMiddleware.mjs';
 
-const USERS_API = express.Router();
-USERS_API.use(express.json());
+const USER_API = express.Router();
+USER_API.use(express.json());
 
 const users = [];
 
-USERS_API.get('/', (req, res, next) => {
-    SuperLogger.log("Demo of logging tool");
-    SuperLogger.log("An important msg", SuperLogger.LOGGING_LEVELS.CRITICAL);
-    res.status(HTTPCodes.SuccessfulResponse.Ok).end();
-});
+// Route to create a new user
+USER_API.post('/register', (req, res) => {
+    const { name, email, pswHash } = req.body;
 
-USERS_API.get('/:id', (req, res, next) => {
-    const userId = req.params.id;
-    const user = users.find(user => user.id === userId);
-    if (user) {
-        res.status(HTTPCodes.SuccessfulResponse.Ok).json(user);
-    } else {
-        res.status(HTTPCodes.ClientSideErrorResponse.NotFound).end();
+    if (!name || !email || !pswHash) {
+        return res.status(400).json({ message: 'Missing required fields' });
     }
-});
 
-USERS_API.post('/', (req, res, next) => {
-    const { name, email, password } = req.body;
-
-    if (name && email && password) {
-        const existingUser = users.find(user => user.email === email);
-        if (!existingUser) {
-            const newUser = new User(name, email, password);
-            users.push(newUser);
-            res.status(HTTPCodes.SuccessfulResponse.Ok).end();
-        } else {
-            res.status(HTTPCodes.ClientSideErrorResponse.BadRequest).end();
-        }
-    } else {
-        res.status(HTTPCodes.ClientSideErrorResponse.BadRequest).send("Missing data fields").end();
+    // Check if user already exists
+    const existingUser = users.find(user => user.email === email);
+    if (existingUser) {
+        return res.status(409).json({ message: 'User already exists' });
     }
+
+    const newUser = new User(name, email, pswHash);
+    users.push(newUser);
+    res.status(201).json({ message: 'User created successfully' });
 });
 
-USERS_API.put('/:id', (req, res) => {
-    const userId = req.params.id;
-    const { name, email } = req.body;
+// Route to authenticate user
+USER_API.post('/login', (req, res) => {
+    const { email, pswHash } = req.body;
 
-    const userIndex = users.findIndex(user => user.id === userId);
-    if (userIndex !== -1) {
-        if (name) users[userIndex].name = name;
-        if (email) users[userIndex].email = email;
-        res.status(HTTPCodes.SuccessfulResponse.Ok).end();
-    } else {
-        res.status(HTTPCodes.ClientSideErrorResponse.NotFound).end();
+    // Find user by email
+    const user = users.find(user => user.email === email);
+
+    if (!user || user.pswHash !== pswHash) {
+        return res.status(401).json({ message: 'Invalid credentials' });
     }
+
+    // Authentication successful
+    // You might want to use a more secure authentication method like JWT instead of storing user state in session
+    req.session.user = user;
+    res.status(200).json({ message: 'Authentication successful' });
 });
 
-USERS_API.delete('/:id', (req, res) => {
-    const userId = req.params.id;
-    const userIndex = users.findIndex(user => user.id === userId);
-    if (userIndex !== -1) {
-        users.splice(userIndex, 1);
-        res.status(HTTPCodes.SuccessfulResponse.Ok).end();
-    } else {
-        res.status(HTTPCodes.ClientSideErrorResponse.NotFound).end();
-    }
+// Route to get user info (requires authentication)
+USER_API.get('/profile', authenticateUser, (req, res) => {
+    // Get user info from session
+    const user = req.session.user;
+    res.status(200).json(user);
 });
 
-export default USERS_API;
+export default USER_API;
