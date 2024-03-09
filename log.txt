@@ -1,0 +1,995 @@
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+2:50:00 PM GET /
+2:50:00 PM GET /favicon.ico
+2:50:16 PM POST /login
+2:51:18 PM GET /
+2:51:27 PM POST /login
+2:52:36 PM POST /login
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+2:57:15 PM GET /
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+Server enviorment PROD
+####################
+Database connection  empty
+####################
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+####################
+3:01:35 PM POST /login
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+3:02:20 PM POST /login
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+3:02:57 PM POST /login
+3:03:00 PM POST /login
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+3:04:16 PM POST /login
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+3:05:04 PM POST /login
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+3:07:24 PM POST /login
+3:07:34 PM POST /login
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+3:08:21 PM POST /login
+3:08:50 PM POST /login
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+3:11:33 PM POST /login
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+3:13:13 PM GET /
+3:13:20 PM POST /login
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+3:18:27 PM POST /login
+3:18:51 PM POST /login
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+3:21:34 PM POST /login
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+3:31:17 PM POST /login
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+3:36:49 PM POST /login
+3:37:55 PM POST /login
+3:39:05 PM POST /login
+3:39:21 PM POST /login
+3:39:31 PM GET /
+3:39:37 PM POST /login
+3:39:57 PM POST /login
+3:39:57 PM POST /login
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+3:42:25 PM POST /login
+3:42:25 PM POST /login
+3:42:57 PM POST /login
+11:37:01 AM POST /login
+11:37:03 AM POST /login
+11:37:11 AM GET /
+11:37:20 AM POST /login
+11:37:25 AM POST /login
+11:45:05 AM GET /
+11:45:05 AM GET /css/index.css
+11:45:25 AM GET /
+11:45:25 AM GET /css/index.css
+11:46:18 AM GET /
+11:46:18 AM GET /css/index.css
+11:46:43 AM GET /
+11:46:43 AM GET /css/index.css
+11:46:49 AM GET /
+11:46:49 AM GET /css/index.css
+11:50:58 AM GET /
+11:50:58 AM GET /css/index.css
+11:52:17 AM GET /
+11:52:17 AM GET /css/index.css
+11:52:28 AM GET /
+11:52:28 AM GET /css/index.css
+11:53:24 AM GET /
+11:53:24 AM GET /css/index.css
+11:53:37 AM GET /
+11:53:37 AM GET /css/index.css
+11:53:41 AM GET /
+11:53:41 AM GET /css/index.css
+11:54:24 AM GET /
+11:54:24 AM GET /css/index.css
+11:57:44 AM GET /
+11:57:44 AM GET /css/index.css
+11:57:47 AM GET /
+11:57:47 AM GET /css/index.css
+11:57:49 AM GET /
+11:57:49 AM GET /css/index.css
+11:58:26 AM GET /
+11:58:26 AM GET /css/index.css
+11:58:27 AM GET /
+11:58:27 AM GET /css/index.css
+11:58:29 AM GET /
+11:58:29 AM GET /css/index.css
+11:58:30 AM GET /
+11:58:30 AM GET /css/index.css
+11:58:38 AM GET /
+11:58:38 AM GET /css/index.css
+11:59:25 AM GET /
+11:59:25 AM GET /css/index.css
+11:59:26 AM POST /login
+11:59:26 AM POST /login
+11:59:30 AM GET /
+11:59:30 AM GET /css/index.css
+12:01:03 PM GET /css/index.css
+12:01:08 PM GET /
+12:01:08 PM GET /css/index.css
+12:03:16 PM GET /
+12:03:16 PM GET /css/index.css
+12:03:42 PM GET /
+12:03:42 PM GET /css/index.css
+12:03:45 PM GET /
+12:03:45 PM GET /css/index.css
+12:03:52 PM GET /
+12:03:52 PM GET /css/index.css
+12:03:53 PM GET /
+12:03:53 PM GET /css/index.css
+12:04:08 PM GET /
+12:04:08 PM GET /css/index.css
+12:05:37 PM GET /
+12:05:37 PM GET /css/index.css
+12:05:52 PM GET /
+12:05:52 PM GET /css/index.css
+12:05:58 PM GET /
+12:05:58 PM GET /css/index.css
+12:06:01 PM GET /
+12:06:01 PM GET /css/index.css
+12:08:13 PM GET /
+12:08:13 PM GET /css/index.css
+12:08:19 PM GET /
+12:08:19 PM GET /css/index.css
+12:08:47 PM GET /
+12:08:47 PM GET /css/index.css
+12:08:48 PM GET /
+12:08:48 PM GET /css/index.css
+12:09:17 PM GET /
+12:09:17 PM GET /css/index.css
+12:09:18 PM GET /
+12:09:18 PM GET /css/index.css
+12:09:32 PM GET /
+12:09:32 PM GET /css/index.css
+12:09:59 PM GET /
+12:09:59 PM GET /css/index.css
+12:09:59 PM GET /
+12:09:59 PM GET /css/index.css
+12:10:35 PM GET /
+12:10:35 PM GET /css/index.css
+12:12:07 PM GET /
+12:12:07 PM GET /css/index.css
+12:12:57 PM GET /
+12:12:57 PM GET /css/index.css
+12:12:58 PM GET /
+12:12:58 PM GET /css/index.css
+12:13:00 PM POST /login
+12:14:00 PM GET /
+12:14:00 PM GET /css/index.css
+12:15:53 PM GET /
+12:15:53 PM GET /css/index.css
+12:16:47 PM GET /
+12:16:47 PM GET /css/index.css
+12:16:52 PM POST /login
+12:17:52 PM GET /
+12:17:52 PM GET /css/index.css
+12:18:32 PM GET /
+12:18:32 PM GET /css/index.css
+12:18:32 PM GET /
+12:18:32 PM GET /css/index.css
+12:19:16 PM GET /
+12:19:16 PM GET /css/index.css
+12:22:50 PM GET /
+12:22:50 PM GET /css/index.css
+12:23:11 PM GET /
+12:23:11 PM GET /css/index.css
+12:24:08 PM GET /
+12:24:08 PM GET /css/index.css
+12:24:34 PM GET /
+12:24:34 PM GET /css/index.css
+12:24:38 PM POST /login
+12:25:22 PM GET /
+12:25:22 PM GET /css/index.css
+12:27:14 PM GET /
+12:27:14 PM GET /css/index.css
+12:27:37 PM GET /
+12:27:37 PM GET /css/index.css
+12:27:48 PM GET /
+12:27:48 PM GET /css/index.css
+12:28:41 PM GET /
+12:28:41 PM GET /css/index.css
+12:28:56 PM GET /
+12:28:56 PM GET /css/index.css
+12:30:19 PM GET /
+12:30:19 PM GET /css/index.css
+12:30:50 PM GET /
+12:30:50 PM GET /css/index.css
+12:30:50 PM GET /
+12:30:50 PM GET /css/index.css
+12:31:03 PM GET /
+12:31:03 PM GET /css/index.css
+12:31:26 PM GET /
+12:31:26 PM GET /css/index.css
+12:31:28 PM GET /
+12:31:28 PM GET /css/index.css
+12:31:30 PM GET /
+12:31:30 PM GET /css/index.css
+12:31:40 PM GET /
+12:31:40 PM GET /css/index.css
+12:31:41 PM GET /
+12:31:41 PM GET /css/index.css
+12:31:41 PM GET /
+12:31:41 PM GET /css/index.css
+12:31:42 PM GET /
+12:31:42 PM GET /css/index.css
+12:31:48 PM GET /
+12:31:48 PM GET /css/index.css
+12:31:49 PM GET /
+12:31:49 PM GET /css/index.css
+12:32:35 PM GET /
+12:32:35 PM GET /css/index.css
+12:32:36 PM GET /
+12:32:36 PM GET /css/index.css
+12:32:47 PM GET /
+12:32:47 PM GET /css/index.css
+12:33:07 PM GET /
+12:33:07 PM GET /css/index.css
+12:34:59 PM GET /
+12:34:59 PM GET /css/index.css
+12:35:42 PM GET /
+12:35:42 PM GET /css/index.css
+12:35:57 PM GET /
+12:35:57 PM GET /css/index.css
+12:36:11 PM GET /
+12:36:11 PM GET /css/index.css
+12:36:25 PM GET /
+12:36:25 PM GET /css/index.css
+12:37:56 PM GET /
+12:37:56 PM GET /css/index.css
+12:37:56 PM GET /
+12:37:56 PM GET /css/index.css
+12:38:05 PM GET /
+12:38:05 PM GET /css/index.css
+12:38:21 PM GET /
+12:38:21 PM GET /css/index.css
+12:38:32 PM GET /
+12:38:32 PM GET /css/index.css
+12:39:00 PM GET /
+12:39:00 PM GET /css/index.css
+12:39:30 PM GET /
+12:39:30 PM GET /css/index.css
+12:40:08 PM GET /
+12:40:08 PM GET /css/index.css
+12:40:09 PM POST /login
+12:40:50 PM GET /
+12:40:50 PM GET /css/index.css
+12:41:24 PM GET /
+12:41:24 PM GET /css/index.css
+12:41:26 PM GET /
+12:41:26 PM GET /css/index.css
+12:41:33 PM GET /
+12:41:33 PM GET /css/index.css
+12:41:48 PM GET /
+12:41:48 PM GET /css/index.css
+12:41:49 PM GET /
+12:41:49 PM GET /css/index.css
+12:42:03 PM GET /
+12:42:03 PM GET /css/index.css
+12:42:23 PM GET /
+12:42:23 PM GET /css/index.css
+12:42:23 PM GET /
+12:42:23 PM GET /css/index.css
+12:42:29 PM GET /
+12:42:29 PM GET /css/index.css
+12:42:40 PM GET /
+12:42:40 PM GET /css/index.css
+12:43:14 PM GET /
+12:43:14 PM GET /css/index.css
+12:44:04 PM GET /
+12:44:04 PM GET /css/index.css
+12:44:04 PM GET /
+12:44:04 PM GET /css/index.css
+12:44:10 PM GET /
+12:44:10 PM GET /css/index.css
+12:44:27 PM GET /
+12:44:27 PM GET /css/index.css
+12:45:01 PM GET /
+12:45:01 PM GET /css/index.css
+12:45:02 PM GET /
+12:45:02 PM GET /css/index.css
+12:45:10 PM GET /
+12:45:10 PM GET /css/index.css
+12:45:14 PM GET /
+12:45:14 PM GET /css/index.css
+12:45:23 PM GET /
+12:45:23 PM GET /css/index.css
+12:46:22 PM GET /
+12:46:22 PM GET /css/index.css
+12:47:02 PM GET /
+12:47:02 PM GET /css/index.css
+12:47:36 PM GET /
+12:47:36 PM GET /css/index.css
+12:48:38 PM GET /
+12:48:38 PM GET /css/index.css
+12:48:56 PM GET /
+12:48:56 PM GET /css/index.css
+12:49:14 PM GET /
+12:49:14 PM GET /css/index.css
+12:49:30 PM GET /
+12:49:30 PM GET /css/index.css
+12:49:40 PM GET /
+12:49:40 PM GET /css/index.css
+12:49:52 PM GET /
+12:49:52 PM GET /css/index.css
+12:49:58 PM GET /
+12:49:58 PM GET /css/index.css
+12:50:06 PM POST /login
+12:50:54 PM GET /
+12:50:54 PM GET /css/index.css
+12:51:29 PM GET /
+12:51:29 PM GET /css/index.css
+12:51:40 PM GET /
+12:51:40 PM GET /css/index.css
+12:51:45 PM GET /
+12:51:45 PM GET /css/index.css
+12:52:04 PM GET /
+12:52:04 PM GET /css/index.css
+12:52:29 PM GET /
+12:52:30 PM GET /css/index.css
+12:52:35 PM GET /
+12:52:35 PM GET /css/index.css
+12:52:56 PM GET /
+12:52:57 PM GET /css/index.css
+12:52:57 PM GET /
+12:52:57 PM GET /css/index.css
+12:53:03 PM GET /
+12:53:03 PM GET /css/index.css
+12:53:03 PM GET /
+12:53:03 PM GET /css/index.css
+12:53:08 PM GET /
+12:53:08 PM GET /css/index.css
+12:53:09 PM GET /
+12:53:09 PM GET /css/index.css
+12:53:34 PM GET /
+12:53:34 PM GET /css/index.css
+1:07:40 PM POST /user/register
+1:07:44 PM GET /css/index.css
+1:08:16 PM GET /css/index.css
+1:08:34 PM GET /
+1:08:46 PM POST /user/register
+1:14:58 PM POST /login
+1:18:47 PM POST /user/register
+1:21:25 PM POST /user/register
+1:21:30 PM GET /
+1:21:38 PM POST /user/register
+1:26:24 PM GET /
+1:26:28 PM POST /login
+1:26:38 PM POST /user/register
+1:29:23 PM POST /user/register
+1:29:47 PM GET /
+1:29:53 PM POST /user/register
+1:31:29 PM GET /
+1:33:45 PM GET /
+1:33:53 PM POST /user/register
+1:34:47 PM POST /login
+1:34:52 PM POST /login
+1:34:56 PM POST /login
+1:35:17 PM GET /
+1:35:21 PM POST /login
+1:36:38 PM GET /
+1:36:42 PM POST /login
+1:36:48 PM POST /login
+1:37:26 PM POST /login
+1:37:29 PM GET /
+1:37:34 PM POST /login
+1:38:34 PM GET /
+1:38:37 PM POST /login
+1:39:29 PM GET /
+1:39:33 PM POST /login
+1:40:18 PM GET /
+1:40:28 PM POST /login
+1:40:44 PM GET /
+1:40:58 PM POST /login
+1:45:10 PM GET /
+1:45:22 PM POST /user/register
+1:48:03 PM GET /
+1:48:10 PM POST /user/register
+1:52:01 PM GET /
+1:52:06 PM POST /register
+1:53:51 PM GET /
+1:56:36 PM POST /user/register
+1:56:48 PM GET /
+1:56:59 PM POST /register
+1:59:48 PM GET /
+2:00:21 PM GET /
+2:00:27 PM POST /register
+2:00:43 PM GET /
+2:00:54 PM POST /user/register
+2:11:49 PM GET /
+2:11:55 PM POST /user/register
+2:17:25 PM GET /
+2:17:31 PM POST /register
+2:17:37 PM POST /register
+2:17:42 PM GET /
+2:17:53 PM POST /user/register
+2:19:28 PM GET /
+2:20:19 PM GET /
+2:21:50 PM GET /
+2:25:22 PM GET /
+2:25:27 PM POST /login
+2:25:42 PM POST /user/register
+2:39:51 PM GET /
+2:39:56 PM POST /user/register
+2:55:46 PM GET /
+2:55:53 PM POST /user
+2:56:12 PM GET /
+2:56:20 PM POST /register/user
+2:56:32 PM GET /
+2:56:37 PM POST /register
+3:03:19 PM GET /
+3:03:27 PM POST /register
+3:04:50 PM GET /
+3:05:11 PM POST /user/register
+3:05:26 PM GET /user/register
+3:07:21 PM GET /user/register
+3:08:01 PM POST /user/register
+3:10:08 PM POST /user/register
+3:11:38 PM GET /
+3:11:44 PM POST /user/register
+3:12:27 PM POST /user/register
+3:12:29 PM GET /
+3:12:34 PM POST /login
+3:13:43 PM GET /
+3:13:50 PM POST /register
+3:17:22 PM POST /register
+3:17:25 PM GET /
+3:17:32 PM POST /register
+3:18:07 PM GET /
+3:18:13 PM POST /register
+3:24:31 PM GET /
+3:24:38 PM POST /register
+3:25:12 PM GET /
+3:25:18 PM POST /register
+3:27:21 PM GET /
+3:27:28 PM POST /register
+3:28:27 PM GET /
+3:28:33 PM POST /register
+3:33:33 PM GET /
+3:33:38 PM GET /
+3:33:45 PM GET /
+4:06:19 PM GET /
+4:06:26 PM POST /register
+4:14:55 PM GET /
+4:15:02 PM POST /register
+4:27:53 PM GET /
+4:27:57 PM POST /login
+4:31:05 PM GET /
+4:31:15 PM POST /register
+4:41:55 PM GET /
+4:42:03 PM POST /register
+5:12:54 PM POST /register
+5:13:00 PM GET /
+5:13:05 PM POST /login
+5:13:50 PM POST /register
+5:21:21 PM POST /register
+5:21:29 PM POST /register
+5:41:57 PM GET /
+5:42:10 PM GET /register
+5:43:19 PM GET /
+5:43:27 PM POST /register
+5:55:44 PM GET /
+5:55:51 PM POST /user
+6:12:59 PM GET /
+6:13:03 PM POST /login
+6:14:21 PM GET /
+6:14:28 PM POST /register
+6:17:42 PM GET /
+6:17:50 PM POST /user/register
+6:21:32 PM GET /
+6:26:26 PM GET /
+6:26:34 PM POST /user/register
+6:29:49 PM GET /
+6:29:51 PM GET /
+6:29:54 PM GET /
+6:29:58 PM GET /
+6:30:03 PM GET /
+6:30:11 PM GET /
+6:30:12 PM GET /
+6:30:18 PM GET /
+6:30:28 PM POST /user/register
+6:41:39 PM GET /
+6:41:45 PM POST /register
+6:48:28 PM GET /
+6:48:35 PM POST /user/register
+7:05:48 PM GET /
+7:05:54 PM POST /register
+7:06:20 PM GET /
+7:06:28 PM POST /user/register
+7:08:43 PM GET /
+7:08:49 PM POST /register
+7:16:25 PM GET /
+7:16:32 PM POST /register
+7:26:09 PM GET /
+7:26:15 PM POST /user/register
+7:35:04 PM GET /
+7:35:12 PM POST /user/register
+7:39:09 PM GET /
+7:39:17 PM POST /user/register
+7:39:47 PM GET /
+7:39:54 PM GET /user/register
+7:40:09 PM GET /user/register
+7:40:10 PM GET /
+7:40:15 PM POST /login
+7:40:27 PM GET /register
+7:42:48 PM GET /
+7:42:54 PM POST /register
+7:47:44 PM GET /
+8:00:10 PM GET /
+8:00:17 PM POST /register
+8:02:54 PM POST /register
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+10:48:39 AM [32mGET[39m /
+10:48:46 AM [33mPOST[39m /login
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+10:49:43 AM [32mGET[39m /
+10:49:48 AM [33mPOST[39m /login
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+10:52:38 AM [32mGET[39m /
+10:52:44 AM [33mPOST[39m /login
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+10:56:48 AM [32mGET[39m /
+10:56:54 AM [33mPOST[39m /login
+10:57:23 AM [33mPOST[39m /user/register
+10:59:03 AM [33mPOST[39m /user/register
+10:59:27 AM [33mPOST[39m /user/register
+11:00:07 AM [32mGET[39m /
+11:00:21 AM [33mPOST[39m /register
+Error creating user: relation "public.Users" does not exist
+11:14:38 AM [32mGET[39m /
+11:14:47 AM [33mPOST[39m /register
+Error creating user: relation "public.Users" does not exist
+11:15:07 AM [32mGET[39m /
+11:15:13 AM [33mPOST[39m /register
+Error creating user: relation "public.Users" does not exist
+11:16:19 AM [33mPOST[39m /register
+Error creating user: relation "public.Users" does not exist
+11:16:24 AM [32mGET[39m /
+11:16:31 AM [33mPOST[39m /register
+Error creating user: relation "public.Users" does not exist
+11:24:49 AM [33mPOST[39m /register
+Error creating user: relation "public.Users" does not exist
+11:24:54 AM [32mGET[39m /
+11:25:00 AM [33mPOST[39m /login
+11:25:18 AM [33mPOST[39m /register
+Error creating user: relation "public.Users" does not exist
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+2:06:12 PM [32mGET[39m /
+2:06:23 PM [33mPOST[39m /register
+Error creating user: column "name" of relation "users" does not exist
+2:08:39 PM [32mGET[39m /
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+2:09:09 PM [33mPOST[39m /register
+Error creating user: column "id" does not exist
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+2:09:57 PM [33mPOST[39m /register
+User created successfully
+2:10:26 PM [33mPOST[39m /login
+2:16:48 PM [33mPOST[39m /register
+Error creating user: duplicate key value violates unique constraint "users_email_key"
+2:17:23 PM [33mPOST[39m /register
+User created successfully
+2:22:20 PM [33mPOST[39m /login
+2:22:25 PM [32mGET[39m /
+2:22:30 PM [33mPOST[39m /login
+2:24:28 PM [32mGET[39m /
+2:24:32 PM [33mPOST[39m /login
+2:26:29 PM [32mGET[39m /
+2:26:29 PM [32mGET[39m /
+2:26:37 PM [32mGET[39m /
+2:26:54 PM [33mPOST[39m /login
+2:27:35 PM [32mGET[39m /
+2:28:20 PM [32mGET[39m /
+2:28:20 PM [32mGET[39m /favicon.ico
+2:28:26 PM [32mGET[39m /
+2:28:41 PM [32mGET[39m /
+2:28:49 PM [32mGET[39m /
+2:30:20 PM [32mGET[39m /
+2:30:21 PM [32mGET[39m /
+2:33:43 PM [32mGET[39m /
+2:33:43 PM [32mGET[39m /
+2:33:45 PM [32mGET[39m /
+2:34:03 PM [32mGET[39m /
+2:34:04 PM [32mGET[39m /
+2:34:04 PM [32mGET[39m /
+2:34:05 PM [32mGET[39m /
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+2:34:26 PM [32mGET[39m /
+2:34:34 PM [32mGET[39m /
+2:34:35 PM [32mGET[39m /
+2:39:07 PM [32mGET[39m /
+2:39:07 PM [32mGET[39m /favicon.ico
+2:39:42 PM [32mGET[39m /
+2:39:47 PM [33mPOST[39m /login
+2:41:13 PM [32mGET[39m /
+2:41:16 PM [32mGET[39m /
+2:41:21 PM [33mPOST[39m /login
+2:41:26 PM [32mGET[39m /
+2:56:22 PM [33mPOST[39m /register
+User created successfully
+3:16:59 PM [32mGET[39m /
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+3:17:07 PM [32mGET[39m /
+3:17:21 PM [33mPOST[39m /register
+Error creating user: userRole is not defined
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+3:18:49 PM [32mGET[39m /
+3:19:03 PM [33mPOST[39m /register
+Error creating user: duplicate key value violates unique constraint "users_email_key"
+3:19:35 PM [33mPOST[39m /register
+Error creating user: userRole is not defined
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+3:21:07 PM [32mGET[39m /
+3:21:16 PM [33mPOST[39m /register
+Error updating user: syntax error at or near "INNSERT"
+Error creating user: syntax error at or near "INNSERT"
+3:21:51 PM [33mPOST[39m /register
+Error updating user: syntax error at or near "INNSERT"
+Error creating user: syntax error at or near "INNSERT"
+3:22:02 PM [32mGET[39m /
+3:22:16 PM [33mPOST[39m /register
+Error updating user: syntax error at or near "INNSERT"
+Error creating user: syntax error at or near "INNSERT"
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+3:26:44 PM [32mGET[39m /
+3:26:53 PM [33mPOST[39m /register
+Error creating user: duplicate key value violates unique constraint "users_email_key"
+3:27:24 PM [33mPOST[39m /register
+Error creating user: userRole is not defined
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+3:28:02 PM [32mGET[39m /
+3:28:12 PM [33mPOST[39m /register
+Error updating user: syntax error at or near "INNSERT"
+Error creating user: syntax error at or near "INNSERT"
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+3:39:41 PM [32mGET[39m /
+3:39:49 PM [33mPOST[39m /register
+Error updating user: syntax error at or near "INNSERT"
+Error creating user: syntax error at or near "INNSERT"
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+3:40:17 PM [32mGET[39m /
+3:40:18 PM [32mGET[39m /
+3:40:22 PM [33mPOST[39m /register
+Error updating user: invalid input syntax for type integer: "NaN"
+Error creating user: invalid input syntax for type integer: "NaN"
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+3:41:43 PM [32mGET[39m /
+3:41:53 PM [33mPOST[39m /register
+Error updating user: invalid input syntax for type integer: "NaN"
+Error creating user: invalid input syntax for type integer: "NaN"
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+3:43:11 PM [33mPOST[39m /register
+Error creating user: duplicate key value violates unique constraint "users_email_key"
+3:43:27 PM [33mPOST[39m /register
+User created successfully
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+3:44:19 PM [33mPOST[39m /register
+User created successfully
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+3:45:17 PM [33mPOST[39m /register
+User updated successfully
+User created successfully
+3:46:43 PM [33mPOST[39m /login
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+4:02:24 PM [32mGET[39m /
+4:02:28 PM [33mPOST[39m /login
+4:02:49 PM [32mGET[39m /
+4:02:59 PM [33mPOST[39m /login
+4:07:19 PM [32mGET[39m /
+4:07:34 PM [33mPOST[39m /register
+User updated successfully
+User created successfully
+4:07:57 PM [33mPOST[39m /login
+4:10:44 PM [32mGET[39m /
+4:10:54 PM [33mPOST[39m /login
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+4:11:38 PM [32mGET[39m /
+4:11:42 PM [33mPOST[39m /login
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+4:29:06 PM [32mGET[39m /
+4:29:11 PM [33mPOST[39m /login
+4:42:14 PM [32mGET[39m /
+4:42:20 PM [33mPOST[39m /login
+4:43:12 PM [32mGET[39m /
+4:43:17 PM [33mPOST[39m /login
+4:44:55 PM [32mGET[39m /
+4:45:00 PM [33mPOST[39m /login
+4:45:46 PM [33mPOST[39m /login
+4:45:57 PM [32mGET[39m /
+4:46:01 PM [33mPOST[39m /login
+4:46:55 PM [32mGET[39m /
+4:47:01 PM [33mPOST[39m /login
+4:49:05 PM [32mGET[39m /
+4:49:12 PM [33mPOST[39m /login
+4:49:29 PM [32mGET[39m /
+4:49:34 PM [33mPOST[39m /login
+4:50:02 PM [32mGET[39m /
+4:53:35 PM [32mGET[39m /
+4:53:41 PM [33mPOST[39m /login
+5:00:00 PM [32mGET[39m /
+5:00:16 PM [32mGET[39m /
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+5:00:43 PM [32mGET[39m /
+5:01:23 PM [32mGET[39m /
+5:01:39 PM [32mGET[39m /
+5:02:38 PM [32mGET[39m /
+5:03:23 PM [32mGET[39m /
+5:03:43 PM [32mGET[39m /
+5:04:39 PM [32mGET[39m /
+5:07:41 PM [32mGET[39m /
+5:09:34 PM [32mGET[39m /
+5:09:34 PM [32mGET[39m /
+5:09:39 PM [32mGET[39m /
+5:09:41 PM [32mGET[39m /
+5:10:08 PM [32mGET[39m /
+5:10:20 PM [32mGET[39m /
+5:10:35 PM [32mGET[39m /
+5:10:36 PM [32mGET[39m /
+5:10:36 PM [32mGET[39m /
+5:10:37 PM [32mGET[39m /
+5:11:12 PM [32mGET[39m /
+5:11:12 PM [32mGET[39m /
+5:11:13 PM [32mGET[39m /
+5:11:13 PM [32mGET[39m /
+5:11:13 PM [32mGET[39m /
+5:11:44 PM [32mGET[39m /
+5:12:21 PM [32mGET[39m /
+5:12:21 PM [32mGET[39m /favicon.ico
+5:13:08 PM [32mGET[39m /
+5:13:17 PM [32mGET[39m /
+5:13:31 PM [32mGET[39m /
+5:13:43 PM [32mGET[39m /
+5:14:15 PM [32mGET[39m /
+5:15:42 PM [32mGET[39m /
+5:17:38 PM [32mGET[39m /
+5:18:27 PM [32mGET[39m /
+5:19:38 PM [32mGET[39m /
+5:19:42 PM [33mPOST[39m /login
+5:19:44 PM [33mPOST[39m /login
+5:21:28 PM [32mGET[39m /
+5:21:35 PM [32mGET[39m /
+5:21:38 PM [33mPOST[39m /login
+5:22:04 PM [32mGET[39m /
+5:22:09 PM [33mPOST[39m /login
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+5:56:58 PM [32mGET[39m /
+5:57:03 PM [33mPOST[39m /login
+5:57:15 PM [33mPOST[39m /content
+Error adding content: null value in column "text" of relation "content" violates not-null constraint
+5:57:59 PM [32mGET[39m /
+5:58:03 PM [33mPOST[39m /login
+5:58:10 PM [33mPOST[39m /login
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+5:59:47 PM [32mGET[39m /
+5:59:52 PM [33mPOST[39m /login
+6:00:02 PM [33mPOST[39m /content
+Error adding content: null value in column "text" of relation "content" violates not-null constraint
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+6:02:44 PM [32mGET[39m /
+6:02:48 PM [33mPOST[39m /login
+6:02:56 PM [33mPOST[39m /login
+6:03:08 PM [33mPOST[39m /content
+Error adding content: null value in column "text" of relation "content" violates not-null constraint
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+6:04:04 PM [32mGET[39m /
+6:04:08 PM [33mPOST[39m /login
+6:04:18 PM [33mPOST[39m /content
+Error adding content: null value in column "text" of relation "content" violates not-null constraint
+6:06:29 PM [32mGET[39m /
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+6:06:40 PM [33mPOST[39m /login
+6:06:57 PM [32mGET[39m /
+6:06:57 PM [32mGET[39m /
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+6:07:52 PM [33mPOST[39m /login
+6:08:05 PM [33mPOST[39m /content
+Error adding content: null value in column "text" of relation "content" violates not-null constraint
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+6:09:10 PM [32mGET[39m /
+6:09:14 PM [33mPOST[39m /login
+6:09:28 PM [33mPOST[39m /content
+Error adding content: Cannot set properties of null (setting 'id')
+####################
+Database connection  empty
+Server enviorment PROD
+####################
+6:11:54 PM [32mGET[39m /
+6:12:00 PM [33mPOST[39m /login
+6:12:15 PM [33mPOST[39m /content
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+6:13:18 PM [32mGET[39m /
+6:13:23 PM [33mPOST[39m /login
+6:13:34 PM [33mPOST[39m /content
+User created successfully

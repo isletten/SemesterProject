@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My app</title>
+</head>
+
+<style>
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e3dbcc;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh; /* Set the height of the body to full viewport height */
+    margin: 0; /* Remove default margin */
+}
+
+#loginForm,
+#createUserForm {
+    margin: auto; /* Center the form horizontally and vertically */
+    padding: 20px;
+    border: 2px solid #d1c4ac; /* Add a border */
+    border-radius: 10px; /* Add rounded corners */
+    background-color: #fdfcf6; /* Set background color */
+    width: 400px;
+    max-width: 400px; /* Limit the maximum width of the form */
+}
+
+#loginForm h1,
+#createUserForm h1 {
+    text-align: center; /* Center the heading */
+   
+}
+
+
+#loginForm input,
+#createUserForm input,
+#loginForm button,
+#createUserForm button {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px; /* Increase padding for input fields */
+    box-sizing: border-box; /* Include padding in the width calculation */
+    
+}
+
+#loginForm button,
+#createUserForm button{
+    font-size:medium;
+    font-weight: bold;
+}
+
+
+#loginForm a,
+#createUserForm a {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: none; /* Remove default underline */
+    cursor: pointer; /* Add cursor pointer */
+    color: darkslategrey;
+}
+
+#loginForm a:hover,
+#createUserForm a:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+
+#loginForm button:hover,
+#createUserForm button:hover {
+    cursor: pointer;
+}
+
+#loginForm button:active,
+#createUserForm button:active {
+    transform:scale(0.98)
+}
+
+#home {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 10px; 
+    text-align: center; 
+    margin-top: -50px; 
+}
+
+#home button {
+    width: 180px; 
+    height: 70px; 
+    font-size: 16px;
+    border-radius: 10px;
+    background-color: #fdfcf6; /* Set background color */
+    border: 2px solid #d1c4ac; /* Add a border */
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+    
+}
+#home.hidden,
+.hidden {
+    display: none;
+}
+</style>
+
+<body>
+
+    <div id="loginForm">
+        <h1>Login</h1>
+        <input type="email" id="loginEmail" autofocus placeholder="Email"><br>
+        <input type="password" id="loginPswHash" autofocus placeholder="Password"><br>
+        <button id="loginButton">Login</button>
+        <a href="#" id="showCreateUserForm">Create account?</a>
+    </div>
+
+    <div id="createUserForm" class="hidden">
+        <h1>Create User</h1>
+        <input type="text" id="name" autofocus placeholder="Name">
+        <input type="email" id="email" autofocus placeholder="Email">
+        <input type="password" id="pswHash" autofocus placeholder="Password">
+        <button id="createUserButton">Create Account</button>
+        <a href="#" id="showLoginForm">Back to Login</a>
+    </div>
+
+
+    <div id="home" class="hidden">
+        <button id="boks1">boks1</button>
+        <button id="boks2">boks1</button>
+        <button id="boks3">boks1</button>
+        <button id="boks4">boks1</button>
+        <button id="boks5">boks1</button>
+        <button id="boks6">boks1</button>
+    </div>
+
+    <div id="homeAdmin" class="hidden">
+        <button id="leggTil">Legg til</button>
+    </div>
+
+    <div id="addForm" class="hidden">
+        <h1>Fyll inn</h1>
+        <input type="text" id="title" autofocus placeholder="tittel">
+        <textarea id="tekstbox"> </textarea>
+        <button id="save">Save</button>
+    </div>
+
+
+    <script>
+        const createUserButton = document.getElementById("createUserButton");
+        const loginButton = document.getElementById("loginButton");
+        const showCreateUserFormButton = document.getElementById("showCreateUserForm");
+        const showLoginFormButton = document.getElementById("showLoginForm");
+        const createUserForm = document.getElementById("createUserForm");
+        const loginForm = document.getElementById("loginForm");
+        const home = document.getElementById("home");
+        const homeAdmin = document.getElementById("homeAdmin");
+        const add = document.getElementById("leggTil");
+        const title =  document.getElementById("title");
+        const tekstbox =  document.getElementById("tekstbox");
+        const save =  document.getElementById("save");
+
+      
+
+        window.onload=()=>{
+            //home.classList.add("hidden");
+            console.log("Hi");
+        }
+
+        createUserButton.onclick = async function (e) {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const pswHash = document.getElementById("pswHash").value;
+            const user = { name, email, pswHash };
+            try {
+                const response = await fetch("/register", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(user), // Change 'data' to 'user'
+                });
+
+                if (response.ok) {
+                    // Handle success, e.g., show a success message
+                    alert("User registered successfully!");
+                } else {
+                    // Handle error response, e.g., show an error message
+                    alert("Failed to register user. Please try again.");
+                }
+            } catch (error) {
+                // Handle fetch error, e.g., show an error message
+                console.error("Error registering user:", error);
+                alert("Failed to register user. Please try again later.");
+            }
+        }
+
+
+        loginButton.onclick = async function (e) {
+            console.log("hei")
+            const email = document.getElementById("loginEmail").value;
+            const pswHash = document.getElementById("loginPswHash").value;
+            const credentials = { email, pswHash };
+            const response = await postTo("/login", credentials);
+            if (response.ok) {
+                const user= await response.json();
+                console.log(user);
+                alert("Login successful!");
+                if (user.data.role === "basic"){
+                    showView("home");
+                }
+                if (user.data.role === "admin"){
+                    showView("homeAdmin");
+                }
+            } else {
+                alert("Login failed. Please check your credentials.");
+            }
+        }
+
+        showCreateUserFormButton.onclick = function (e) {
+            showView("createUserForm");
+        }
+
+        showLoginFormButton.onclick = function (e) {
+            showView("logInForm");
+        }
+
+        save.onclick = async function() {
+            const data = {
+                title: title.value,
+                text: tekstbox.value
+            }
+            const res = await postTo("/content", data)
+            console.log(res)
+        }
+
+        async function postTo(url, data) {
+            const header = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            };
+
+            const response = await fetch(url, header);
+            return response;
+        }
+
+
+        function showView (view){
+            if (view==="createUserForm"){
+                loginForm.classList.add("hidden");
+                createUserForm.classList.remove("hidden");
+                home.classList.add("hidden");
+            }
+            if (view==="logInForm"){
+                createUserForm.classList.add("hidden");
+                loginForm.classList.remove("hidden");
+                home.classList.add("hidden");
+            }
+            if (view==="home"){
+                loginForm.classList.add("hidden");
+                home.classList.remove("hidden");
+            }
+            if (view==="homeAdmin"){
+                loginForm.classList.add("hidden");
+                home.classList.add("hidden");
+                homeAdmin.classList.remove("hidden");
+            }
+            if (view==="addForm"){
+                loginForm.classList.add("hidden");
+                home.classList.add("hidden");
+                homeAdmin.classList.add("hidden");
+                addForm.classList.remove("hidden");
+            }
+        }
+
+        add.onclick = ()=>{
+            console.log("legg til");
+            showView("addForm");
+        }
+    </script>
+
+</body>
+
+</html>

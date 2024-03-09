@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My app</title>
+    <style>
+        .hidden {
+    display: none;
+}
+
+#loginForm,
+#createUserForm {
+    margin-bottom: 20px;
+}
+
+#loginForm input,
+#createUserForm input,
+#loginForm button,
+#createUserForm button {
+    margin-bottom: 10px;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <div id="loginForm">
+        <h2>Login</h2>
+        Email: <input type="email" id="loginEmail"><br>
+        Password: <input type="password" id="loginPswHash"><br>
+        <button id="loginButton">Login</button>
+        <button id="showCreateUserForm">Create User</button>
+    </div>
+
+    <div id="createUserForm" class="hidden">
+        <h2>Create User</h2>
+        Name: <input type="text" id="name"><br>
+        Email: <input type="email" id="email"><br>
+        Password: <input type="password" id="pswHash"><br>
+        <button id="createUserButton">Create User</button>
+        <button id="showLoginForm">Back to Login</button>
+    </div>
+
+    <script>
+        const createUserButton = document.getElementById("createUserButton");
+        const loginButton = document.getElementById("loginButton");
+        const showCreateUserFormButton = document.getElementById("showCreateUserForm");
+        const showLoginFormButton = document.getElementById("showLoginForm");
+        const createUserForm = document.getElementById("createUserForm");
+        const loginForm = document.getElementById("loginForm");
+
+        createUserButton.onclick = async function (e) {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const pswHash = document.getElementById("pswHash").value;
+            const user = { name, email, pswHash };
+            await postTo("/user/register", user);
+        }
+
+        loginButton.onclick = async function (e) {
+            const email = document.getElementById("loginEmail").value;
+            const pswHash = document.getElementById("loginPswHash").value;
+            const credentials = { email, pswHash };
+            const response = await postTo("/login", credentials);
+            if (response.ok) {
+                alert("Login successful!");
+            } else {
+                alert("Login failed. Please check your credentials.");
+            }
+        }
+
+        showCreateUserFormButton.onclick = function (e) {
+            loginForm.classList.add("hidden");
+            createUserForm.classList.remove("hidden");
+        }
+
+        showLoginFormButton.onclick = function (e) {
+            createUserForm.classList.add("hidden");
+            loginForm.classList.remove("hidden");
+        }
+
+        async function postTo(url, data) {
+            const header = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            };
+
+            const response = await fetch(url, header);
+            return response;
+        }
+    </script>
+
+</body>
+
+</html>
