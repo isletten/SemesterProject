@@ -226,6 +226,34 @@ class DBManager {
         return id;
     }
 
+    async updateContent(id, title, text) {
+        const client = new pg.Client(this.#credentials);
+
+        try {
+            await client.connect();
+            const output = await client.query('UPDATE "public"."content" SET "title" = $1, "text" = $2 WHERE id = $3;', [title, text, id]);
+
+            // Client.Query returns an object of type pg.Result
+            // Of special interest are the rows and rowCount properties of this object.
+
+            // TODO: Did we update the user?
+            if (output.rowCount > 0) {
+                SuperLogger.log("Content updated successfully", SuperLogger.LOGGING_LEVELS.INFO);
+            } else {
+                SuperLogger.log("Content update failed", SuperLogger.LOGGING_LEVELS.ERROR);
+            }
+        } catch (error) {
+            console.error('Error updating Content:', error);
+            // TODO: Error handling?? Remember that this is a module separate from your server
+            SuperLogger.log("Error updating Content: " + error.message, SuperLogger.LOGGING_LEVELS.ERROR);
+            throw error; // Rethrow the error to handle it elsewhere
+        } finally {
+            client.end(); // Always disconnect from the database.
+        }
+
+        return {id, title, text};
+    }
+
     async getUserFromEmail(email) {
         const client = new pg.Client(connectionString);
         let user = null;

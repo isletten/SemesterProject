@@ -1,5 +1,5 @@
 import 'dotenv/config'
-import express from 'express' // Express is installed using npm
+import express, { json } from 'express' // Express is installed using npm
 import USER_API from './routes/usersRoute.mjs'; // This is where we have defined the API for working with users
 import SuperLogger from './modules/SuperLogger.mjs';
 import printDeveloperStartupInportantInformationMSG from "./modules/developerHelpers.mjs";
@@ -125,6 +125,24 @@ server.delete("/content", async (req, res) => {
         res.status(500).json({ message: 'Failed to delete content' });
     }
 });
+
+server.put("/content", async (req, res) => {
+    try {
+        let {id,title,text} = req.body;
+        // Assuming you have a createUser method in storageManager.mjs
+        const response = await dbm.updateContent(id,title,text);
+        console.log(response)
+        if (response){
+            res.status(200).json(response).end();
+        }else{
+            res.status(500).end();
+        }
+    } catch (error) {
+        console.error('Error deleting content:', error);
+        res.status(500).json({ message: 'Failed to delete content' });
+    }
+});
+
 
 // Start the server 
 server.listen(server.get('port'), function () {

@@ -1260,3 +1260,50 @@ Content deleted successfully
 Content deleted successfully
 6:26:55 PM [32mGET[39m /
 6:26:55 PM [32mGET[39m /content
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+6:31:13 PM [32mGET[39m /
+6:31:13 PM [32mGET[39m /content
+6:40:26 PM [32mGET[39m /
+6:40:26 PM [32mGET[39m /content
+6:41:08 PM [32mGET[39m /
+6:41:08 PM [32mGET[39m /content
+6:41:58 PM [32mGET[39m /
+6:41:58 PM [32mGET[39m /content
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+7:18:09 PM [32mGET[39m /
+7:19:32 PM [32mGET[39m /
+7:19:32 PM [32mGET[39m /content
+7:19:45 PM [33mPUT[39m /content
+Content updated successfully
+7:20:00 PM [33mPUT[39m /content
+Content updated successfully
+7:20:53 PM [32mGET[39m /
+7:20:54 PM [32mGET[39m /content
+7:21:06 PM [33mPUT[39m /content
+Content updated successfully
+7:22:23 PM [32mGET[39m /
+7:22:23 PM [32mGET[39m /content
+7:22:32 PM [33mPUT[39m /content
+Content updated successfully
+7:23:32 PM [32mGET[39m /
+7:23:32 PM [32mGET[39m /content
+7:23:40 PM [33mPUT[39m /content
+Content updated successfully
+7:23:50 PM [33mPUT[39m /content
+Content updated successfully
+7:27:34 PM [32mGET[39m /
+7:27:34 PM [32mGET[39m /content
+7:28:26 PM [32mGET[39m /
+7:28:26 PM [32mGET[39m /content
+7:29:00 PM [32mGET[39m /
+7:29:00 PM [32mGET[39m /content
+7:29:15 PM [32mGET[39m /content
+7:34:01 PM [32mGET[39m /content
+7:34:07 PM [32mGET[39m /
+7:34:07 PM [32mGET[39m /content
