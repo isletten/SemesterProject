@@ -177,6 +177,27 @@ class DBManager {
         return role;
     }
 
+    async getContent(){
+        const client = new pg.Client(connectionString);
+        let content = null;
+        try {
+            await client.connect()
+            const sql = "SELECT * FROM content";
+
+            const output = await client.query(sql);
+            console.log(output)
+            if(output && output.rows){
+                    content = output.rows;
+            }
+
+        } catch (error) {
+            console.log(error)
+        } finally {
+            client.end(); // Always disconnect from the database.
+        }
+        return content;
+    }
+
     async getUserFromEmail(email) {
         const client = new pg.Client(connectionString);
         let user = null;

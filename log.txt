@@ -993,3 +993,83 @@ Database connection  empty
 6:13:23 PM [33mPOST[39m /login
 6:13:34 PM [33mPOST[39m /content
 User created successfully
+3:44:56 PM [32mGET[39m /favicon.ico
+3:48:57 PM [33mPOST[39m /login
+3:49:18 PM [33mPOST[39m /content
+User created successfully
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+4:05:56 PM [32mGET[39m /
+4:06:01 PM [33mPOST[39m /login
+4:06:04 PM [32mGET[39m /content
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+4:07:18 PM [32mGET[39m /
+4:07:23 PM [33mPOST[39m /login
+4:07:27 PM [32mGET[39m /content
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+4:09:16 PM [32mGET[39m /
+4:09:21 PM [33mPOST[39m /login
+4:09:22 PM [32mGET[39m /content
+4:09:23 PM [33mPOST[39m /login
+4:09:27 PM [32mGET[39m /content
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+4:12:21 PM [32mGET[39m /
+4:12:31 PM [33mPOST[39m /login
+4:12:33 PM [32mGET[39m /content
+####################
+Database connection  empty
+Server enviorment PROD
+####################
+4:14:36 PM [32mGET[39m /
+4:14:39 PM [33mPOST[39m /login
+4:14:42 PM [32mGET[39m /content
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+4:20:21 PM [32mGET[39m /
+4:20:26 PM [33mPOST[39m /login
+4:20:28 PM [32mGET[39m /content
+4:20:55 PM [33mPOST[39m /login
+4:20:59 PM [32mGET[39m /content
+4:21:28 PM [32mGET[39m /
+4:21:48 PM [33mPOST[39m /login
+4:21:51 PM [32mGET[39m /content
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+4:27:30 PM [32mGET[39m /
+4:27:36 PM [33mPOST[39m /login
+4:27:38 PM [32mGET[39m /content
+4:28:27 PM [32mGET[39m /
+4:28:32 PM [33mPOST[39m /login
+4:28:34 PM [32mGET[39m /content
+4:29:16 PM [32mGET[39m /
+4:29:20 PM [33mPOST[39m /login
+4:29:23 PM [32mGET[39m /content
+4:30:18 PM [32mGET[39m /
+4:30:23 PM [33mPOST[39m /login
+4:30:25 PM [32mGET[39m /content
+4:34:08 PM [32mGET[39m /
+4:34:13 PM [33mPOST[39m /login
+4:34:16 PM [33mPOST[39m /login
+4:34:17 PM [32mGET[39m /content
+4:34:19 PM [32mGET[39m /content
+4:34:43 PM [33mPOST[39m /login
+4:34:46 PM [32mGET[39m /content

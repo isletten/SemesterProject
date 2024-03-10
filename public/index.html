@@ -124,14 +124,7 @@ body {
     </div>
 
 
-    <div id="home" class="hidden">
-        <button id="boks1">boks1</button>
-        <button id="boks2">boks1</button>
-        <button id="boks3">boks1</button>
-        <button id="boks4">boks1</button>
-        <button id="boks5">boks1</button>
-        <button id="boks6">boks1</button>
-    </div>
+    <div id="home" class="hidden"></div>
 
     <div id="homeAdmin" class="hidden">
         <button id="leggTil">Legg til</button>
@@ -159,7 +152,7 @@ body {
         const tekstbox =  document.getElementById("tekstbox");
         const save =  document.getElementById("save");
 
-      
+        let loginRole = "";
 
         window.onload=()=>{
             //home.classList.add("hidden");
@@ -204,13 +197,10 @@ body {
             if (response.ok) {
                 const user= await response.json();
                 console.log(user);
+                loginRole=user.data.role;
+                await getContent();
                 alert("Login successful!");
-                if (user.data.role === "basic"){
-                    showView("home");
-                }
-                if (user.data.role === "admin"){
-                    showView("homeAdmin");
-                }
+                showView("home");
             } else {
                 alert("Login failed. Please check your credentials.");
             }
@@ -246,6 +236,36 @@ body {
             return response;
         }
 
+        async function getContent() {
+            const response = await fetch("/content", {
+                method: "GET", 
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            if (response.status === 200) {
+                let content = await response.json();
+                displayContent(content);
+                console.log(content)
+            }
+        }
+
+        function displayContent(content) {
+            for (let item of content) {
+                let button = document.createElement("button");
+                button.innerHTML = item.title;
+                home.appendChild (button);
+            }
+            console.log("loginRole")
+            if (loginRole === "admin"){
+                let button = document.createElement("button");
+                button.innerHTML = "Legg til";
+                button.onclick= function(){
+                    showView("addForm");
+                }
+                home.appendChild (button);
+            }
+        }
 
         function showView (view){
             if (view==="createUserForm"){
@@ -279,6 +299,8 @@ body {
             console.log("legg til");
             showView("addForm");
         }
+
+        
     </script>
 
 </body>

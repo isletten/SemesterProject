@@ -92,6 +92,23 @@ server.post("/content", async (req, res) => {
     }
 });
 
+server.get("/content", async (req, res) => {
+    try {
+        
+        // Assuming you have a createUser method in storageManager.mjs
+        const getContent = await dbm.getContent();
+        console.log(getContent)
+        if (getContent){
+            res.status(200).json(getContent).end();
+        }else{
+            res.status(500).end();
+        }
+    } catch (error) {
+        console.error('Error adding content:', error);
+        res.status(500).json({ message: 'Failed to add content' });
+    }
+});
+
 // Start the server 
 server.listen(server.get('port'), function () {
     console.log('server running', server.get('port'));
