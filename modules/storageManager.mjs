@@ -198,6 +198,34 @@ class DBManager {
         return content;
     }
 
+    async deleteContent(id) {
+        const client = new pg.Client(this.#credentials);
+
+        try {
+            await client.connect();
+            const output = await client.query('DELETE FROM "public"."content" WHERE id = $1;', [id]);
+
+            // Client.Query returns an object of type pg.Result
+            // Of special interest are the rows and rowCount properties of this object.
+
+            // TODO: Did the user get deleted?
+            if (output.rowCount > 0) {
+                SuperLogger.log("Content deleted successfully", SuperLogger.LOGGING_LEVELS.INFO);
+            } else {
+                SuperLogger.log("Content deletion failed", SuperLogger.LOGGING_LEVELS.ERROR);
+            }
+        } catch (error) {
+            console.error('Error deleting Content:', error);
+            // TODO: Error handling?? Remember that this is a module separate from your server
+            SuperLogger.log("Error deleting Content: " + error.message, SuperLogger.LOGGING_LEVELS.ERROR);
+            throw error; // Rethrow the error to handle it elsewhere
+        } finally {
+            client.end(); // Always disconnect from the database.
+        }
+
+        return id;
+    }
+
     async getUserFromEmail(email) {
         const client = new pg.Client(connectionString);
         let user = null;
@@ -226,13 +254,13 @@ class DBManager {
     }
 }
 
-let connectionString = process.env.DB_CONNECTIONSTRING_LOCAL;
-if (process.env.ENVIORMENT != "local") {
-    connectionString = process.env.DB_CONNECTIONSTRING_PROD;
-}
+    let connectionString = process.env.DB_CONNECTIONSTRING_LOCAL;
+    if (process.env.ENVIORMENT != "local") {
+        connectionString = process.env.DB_CONNECTIONSTRING_PROD;
+    }
 
-if (connectionString == undefined) {
-    throw ("You forgot the db connection string");
-}
+    if (connectionString == undefined) {
+        throw ("You forgot the db connection string");
+    }
 
-export default new DBManager();
+    export default new DBManager();

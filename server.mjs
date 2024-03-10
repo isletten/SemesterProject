@@ -109,6 +109,23 @@ server.get("/content", async (req, res) => {
     }
 });
 
+server.delete("/content", async (req, res) => {
+    try {
+        let id = req.body.id;
+        // Assuming you have a createUser method in storageManager.mjs
+        const response = await dbm.deleteContent(id);
+        console.log(response)
+        if (response){
+            res.status(200).end();
+        }else{
+            res.status(500).end();
+        }
+    } catch (error) {
+        console.error('Error deleting content:', error);
+        res.status(500).json({ message: 'Failed to delete content' });
+    }
+});
+
 // Start the server 
 server.listen(server.get('port'), function () {
     console.log('server running', server.get('port'));
