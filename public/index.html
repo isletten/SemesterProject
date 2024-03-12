@@ -39,7 +39,8 @@ nav button,
 #createUserForm,
 #addForm,
 #editForm,
-#showContent {
+#showContent,
+#showUsers {
     margin: auto; /* Center the form horizontally and vertically */
     padding: 20px;
     border: 2px solid #d1c4ac; /* Add a border */
@@ -135,7 +136,7 @@ button:hover {
 
     <nav class="hidden">
          <button id="homeBtn">Home</button>
-         <button id="myPage">My page</button>
+         <button id="myPageBtn">My page</button>
          <button id="logOut">Log out</button>
          <button id="usersBtn" class="hidden">Users</button>
     </nav>
@@ -180,6 +181,8 @@ button:hover {
     </div>
 
     <div id="showContent" class="hidden"> </div>
+    <div id="showUsers" class="hidden"></div>
+    <div id="myPage" class="hidden">Mine kommentarer:</div>
 
     <script>
         const createUserButton = document.getElementById("createUserButton");
@@ -196,7 +199,7 @@ button:hover {
         const save =  document.getElementById("save");
         const nav =  document.querySelector("nav");
         const homeBtn = document.getElementById("homeBtn");
-        const myPage = document.getElementById("myPage");
+        const myPageBtn = document.getElementById("myPageBtn");
         const logOut = document.getElementById("logOut");
         const showContent = document.getElementById("showContent");
         const editForm = document.getElementById("editForm");
@@ -204,6 +207,8 @@ button:hover {
         const editTekstbox = document.getElementById("editTekstbox");
         const updateBtn = document.getElementById("updateBtn");
         const usersBtn = document.getElementById("usersBtn");
+        const showUsers = document.getElementById("showUsers");
+        const myPage = document.getElementById("myPage");
 
         let loginRole = "";
         let currentBox = 0;
@@ -326,6 +331,72 @@ button:hover {
             showView("home");
         }
 
+        usersBtn.onclick = function(){
+            showView("users");
+            getUsers();
+        }
+
+        myPageBtn.onclick = async function(){
+            showView("myPage");
+            let myComments = await getMyComments();
+            
+            for(let comment of myComments){
+                let div = document.createElement("div");
+                div.innerHTML=comment.comment;
+                myPage.appendChild(div);
+                let deleteBtn = document.createElement("button");
+                deleteBtn.innerHTML="Slett kommentar";
+                let id = comment.id;
+                myPage.appendChild(deleteBtn)
+;                deleteBtn.onclick = async function(){
+                    const response = await deleteComment(id);
+                }
+            }
+            console.log(myComments)
+        }
+
+        async function deleteComment(id){
+            const response = await fetch ("/comment", {
+                method: "delete",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({id}),
+            });
+            console.log(response);
+            if(response.status === 200){
+                location.reload();
+            }
+        }
+
+        async function getMyComments(){
+            let userid = localStorage.getItem("uid").split(":")[0];
+            const response = await fetch(`/myComments/${userid}`, {
+                method: "GET", 
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            if (response.status === 200) {
+                let comments = await response.json();
+                return comments;
+            }
+        }
+
+        async function getUsers() {
+            const response = await fetch("/users", {
+                method: "GET", 
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            if (response.status === 200) {
+                let users = await response.json();
+                displayUsers(users);
+                console.log(users)
+            }
+        }
+
         async function postTo(url, data) {
             const header = {
                 method: "POST",
@@ -380,7 +451,6 @@ button:hover {
                 }
             }
 
-
             console.log("loginRole")
             if (loginRole === "admin"){
                 let button = document.createElement("button");
@@ -392,8 +462,44 @@ button:hover {
             }
         }
 
+        function displayUsers(users) {
+            for (let user of users) {
+                let userid = user.userid;
+                let button = document.createElement("button");
+                button.innerHTML = "deleteUsers";
+                let div = document.createElement("div");
+                let userDiv = document.createElement("div");
+                let EmailDiv = document.createElement("div");
+                let username = user.username;
+                let email = user.email;
+                userDiv.innerHTML = username;
+                EmailDiv.innerHTML = email;
+                div.appendChild(userDiv);
+                div.appendChild(EmailDiv);
+                div.appendChild(button);
+                showUsers.appendChild(div);
+                button.onclick = function(){
+                   deleteUser(userid);
+                }
+            }
+        }
 
-        function showContentBox(itemid, title, text){
+        async function deleteUser(userid){
+            const response = await fetch ("/users", {
+                method: "delete",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({userid}),
+            });
+            console.log(response);
+            if(response.status === 200){
+                location.reload();
+            }
+        }
+
+
+       async function showContentBox(itemid, title, text){
             showContent.innerHTML="";
                 currentBox = itemid;
                     let h2 = document.createElement("h2");
@@ -402,6 +508,9 @@ button:hover {
                     let p = document.createElement("p");
                     p.innerHTML = text;
                     showContent.appendChild(p);
+                    let likeBtn = document.createElement("button");
+                    likeBtn.innerHTML = "Lagre";
+                    showContent.appendChild(likeBtn);
                     if(loginRole === "admin"){
                         let editBtn = document.createElement("button");
                         editBtn.innerHTML = "Rediger";
@@ -422,7 +531,48 @@ button:hover {
                         }
 
                     }
+
+                   let comments = await getComments(itemid);
+                   console.log(comments);
+                   let commentArea = document.createElement("textarea");
+                   showContent.appendChild(commentArea);
+                   let addComment = document.createElement("button");
+                   addComment.innerHTML="Send kommentar";
+                   showContent.appendChild(addComment);
+                   addComment.onclick = async function (){
+                   await sendComment(itemid, commentArea.value);
+                   }
+                   for (let comment of comments){
+                    let commentDiv = document.createElement("div");
+                    commentDiv.innerHTML=comment.comment;
+                    showContent.appendChild(commentDiv);
+                   }
                     showView("showContent");
+                }
+
+                async function sendComment(itemid, comment){
+                    let userid = localStorage.getItem("uid").split(":")[0];
+                    let url = "/comment";
+                    let data = {
+                        userid, itemid, comment
+                    }
+                    let response = await postTo(url, data);
+                    if (response.status === 200) {
+                        location.reload();
+                    }
+                }
+
+                async function getComments(itemid){
+                    const response = await fetch(`/comments/${itemid}`, {
+                method: "GET", 
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            if (response.status === 200) {
+                let comments = await response.json();
+                return comments;
+            }
                 }
 
         function showView (view){
@@ -430,6 +580,8 @@ button:hover {
                 loginForm.classList.add("hidden");
                 createUserForm.classList.remove("hidden");
                 home.classList.add("hidden");
+                showUsers.classList.add("hidden");
+                myPage.classList.add("hidden");
             }
             if (view==="logInForm"){
                 console.log("logInForm")
@@ -437,23 +589,31 @@ button:hover {
                 loginForm.classList.remove("hidden");
                 home.classList.add("hidden");
                 nav.classList.add("hidden");
+                showUsers.classList.add("hidden");
+                myPage.classList.add("hidden");
             }
             if (view==="home"){
                 loginForm.classList.add("hidden");
                 home.classList.remove("hidden");
                 addForm.classList.add("hidden");
                 showContent.classList.add("hidden");
+                showUsers.classList.add("hidden");
+                myPage.classList.add("hidden");
             }
             if (view==="homeAdmin"){
                 loginForm.classList.add("hidden");
                 home.classList.add("hidden");
                 homeAdmin.classList.remove("hidden");
+                showUsers.classList.add("hidden");
+                myPage.classList.add("hidden");
             }
             if (view==="addForm"){
                 loginForm.classList.add("hidden");
                 home.classList.add("hidden");
                 homeAdmin.classList.add("hidden");
                 addForm.classList.remove("hidden");
+                showUsers.classList.add("hidden");
+                myPage.classList.add("hidden");
             }
             if (view==="showContent"){
                 loginForm.classList.add("hidden");
@@ -461,6 +621,8 @@ button:hover {
                 homeAdmin.classList.add("hidden");
                 showContent.classList.remove("hidden");
                 editForm.classList.add("hidden");
+                showUsers.classList.add("hidden");
+                myPage.classList.add("hidden");
             }
             if (view==="editContent"){
                 loginForm.classList.add("hidden");
@@ -468,6 +630,26 @@ button:hover {
                 homeAdmin.classList.add("hidden");
                 showContent.classList.add("hidden");
                 editForm.classList.remove("hidden");
+                showUsers.classList.add("hidden");
+                myPage.classList.add("hidden");
+            }
+            if (view==="users"){
+                loginForm.classList.add("hidden");
+                home.classList.add("hidden");
+                homeAdmin.classList.add("hidden");
+                showContent.classList.add("hidden");
+                editForm.classList.add("hidden");
+                showUsers.classList.remove("hidden");
+                myPage.classList.add("hidden");
+            }
+            if (view==="myPage"){
+                loginForm.classList.add("hidden");
+                home.classList.add("hidden");
+                homeAdmin.classList.add("hidden");
+                showContent.classList.add("hidden");
+                editForm.classList.add("hidden");
+                showUsers.classList.add("hidden");
+                myPage.classList.remove("hidden");
             }
         }
 

@@ -143,6 +143,108 @@ server.put("/content", async (req, res) => {
     }
 });
 
+server.get("/users", async (req, res) => {
+    try {
+        
+        // Assuming you have a createUser method in storageManager.mjs
+        const getUsers = await dbm.getUsers();
+        console.log(getUsers)
+        if (getUsers){
+            res.status(200).json(getUsers).end();
+        }else{
+            res.status(500).end();
+        }
+    } catch (error) {
+        console.error('Error showing users:', error);
+        res.status(500).json({ message: 'Failed to show users' });
+    }
+});
+
+server.delete("/users", async (req, res) => {
+    try {
+        let userid = req.body.userid;
+        // Assuming you have a createUser method in storageManager.mjs
+        const response = await dbm.deleteUser(userid);
+        console.log(response)
+        if (response){
+            res.status(200).end();
+        }else{
+            res.status(500).end();
+        }
+    } catch (error) {
+        console.error('Error deleting user:', error);
+        res.status(500).json({ message: 'Failed to delete user' });
+    }
+});
+
+server.get("/comments/:itemid", async (req, res) => {
+    try {
+        
+        // Assuming you have a createUser method in storageManager.mjs
+        const getComments = await dbm.getComments(req.params.itemid);
+        console.log(getComments)
+        if (getComments){
+            res.status(200).json(getComments).end();
+        }else{
+            res.status(500).end();
+        }
+    } catch (error) {
+        console.error('Error showing users:', error);
+        res.status(500).json({ message: 'Failed to show users' });
+    }
+});
+
+server.get("/myComments/:userid", async (req, res) => {
+    try {
+        
+        // Assuming you have a createUser method in storageManager.mjs
+        const getMyComments = await dbm.getMyComments(req.params.userid);
+        console.log(getMyComments)
+        if (getMyComments){
+            res.status(200).json(getMyComments).end();
+        }else{
+            res.status(500).end();
+        }
+    } catch (error) {
+        console.error('Error showing my comments:', error);
+        res.status(500).json({ message: 'Failed to show my comments' });
+    }
+});
+
+server.post("/comment", async (req, res) => {
+    try {
+        const {userid, itemid, comment} = req.body;
+        
+        // Assuming you have a createUser method in storageManager.mjs
+        const id = await dbm.addComment(userid, itemid, comment);
+        if (id){
+            res.status(200).end();
+        }else{
+            res.status(500).end();
+        }
+    } catch (error) {
+        console.error('Error adding content:', error);
+        res.status(500).json({ message: 'Failed to add content' });
+    }
+});
+
+server.delete("/comment", async (req, res) => {
+    try {
+        let id = req.body.id;
+        // Assuming you have a createUser method in storageManager.mjs
+        const response = await dbm.deleteComment(id);
+        console.log(response)
+        if (response){
+            res.status(200).end();
+        }else{
+            res.status(500).end();
+        }
+    } catch (error) {
+        console.error('Error deleting content:', error);
+        res.status(500).json({ message: 'Failed to delete content' });
+    }
+});
+
 
 // Start the server 
 server.listen(server.get('port'), function () {

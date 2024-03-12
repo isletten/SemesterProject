@@ -1307,3 +1307,288 @@ Content updated successfully
 7:34:01 PM [32mGET[39m /content
 7:34:07 PM [32mGET[39m /
 7:34:07 PM [32mGET[39m /content
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+11:31:25 AM [32mGET[39m /
+11:31:29 AM [33mPOST[39m /login
+11:31:32 AM [32mGET[39m /content
+11:32:11 AM [33mPOST[39m /login
+11:32:13 AM [32mGET[39m /content
+11:32:25 AM [33mPOST[39m /content
+User created successfully
+11:32:26 AM [32mGET[39m /
+11:32:26 AM [32mGET[39m /content
+11:32:32 AM [32mGET[39m /
+11:32:32 AM [32mGET[39m /content
+11:32:56 AM [33mPOST[39m /login
+11:33:00 AM [32mGET[39m /content
+11:33:06 AM [32mGET[39m /
+11:33:06 AM [32mGET[39m /content
+11:33:21 AM [32mGET[39m /
+11:33:21 AM [32mGET[39m /content
+11:35:25 AM [32mGET[39m /
+11:35:25 AM [32mGET[39m /content
+11:35:31 AM [33mPOST[39m /login
+11:35:33 AM [32mGET[39m /content
+11:35:45 AM [32mGET[39m /
+11:35:45 AM [32mGET[39m /content
+11:37:25 AM [33mPOST[39m /login
+11:37:28 AM [32mGET[39m /content
+11:37:34 AM [32mGET[39m /
+11:37:34 AM [32mGET[39m /content
+11:37:37 AM [31mDELETE[39m /content
+Content deleted successfully
+11:37:38 AM [32mGET[39m /
+11:37:38 AM [32mGET[39m /content
+11:38:21 AM [33mPOST[39m /content
+User created successfully
+11:38:22 AM [32mGET[39m /
+11:38:22 AM [32mGET[39m /content
+11:38:56 AM [33mPUT[39m /content
+Content updated successfully
+11:39:33 AM [33mPOST[39m /content
+User created successfully
+11:39:35 AM [32mGET[39m /
+11:39:36 AM [32mGET[39m /content
+11:39:56 AM [33mPOST[39m /content
+User created successfully
+11:39:58 AM [32mGET[39m /
+11:39:58 AM [32mGET[39m /content
+11:40:11 AM [33mPOST[39m /content
+User created successfully
+11:40:12 AM [32mGET[39m /
+11:40:12 AM [32mGET[39m /content
+11:40:31 AM [33mPOST[39m /content
+User created successfully
+11:40:33 AM [32mGET[39m /
+11:40:33 AM [32mGET[39m /content
+11:40:45 AM [33mPOST[39m /content
+User created successfully
+11:40:46 AM [32mGET[39m /
+11:40:46 AM [32mGET[39m /content
+11:41:01 AM [33mPOST[39m /login
+11:41:05 AM [32mGET[39m /content
+11:41:09 AM [32mGET[39m /
+11:41:09 AM [32mGET[39m /content
+12:14:07 PM [33mPOST[39m /login
+12:14:20 PM [33mPOST[39m /login
+12:14:33 PM [32mGET[39m /
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+12:15:28 PM [32mGET[39m /
+12:15:33 PM [33mPOST[39m /login
+12:15:43 PM [33mPOST[39m /login
+12:15:51 PM [32mGET[39m /
+12:15:55 PM [33mPOST[39m /login
+####################
+####################
+Database connection  empty
+Server enviorment PROD
+7:09:04 PM [32mGET[39m /
+7:09:13 PM [33mPOST[39m /login
+7:09:17 PM [32mGET[39m /content
+7:17:44 PM [32mGET[39m /
+7:17:44 PM [32mGET[39m /content
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+7:27:23 PM [32mGET[39m /
+7:27:23 PM [32mGET[39m /content
+7:27:34 PM [32mGET[39m /users
+7:28:18 PM [32mGET[39m /
+7:28:18 PM [32mGET[39m /content
+7:28:21 PM [32mGET[39m /users
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+7:30:30 PM [32mGET[39m /
+7:30:30 PM [32mGET[39m /content
+7:30:33 PM [32mGET[39m /users
+Error getting user: column "id" does not exist
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+7:32:29 PM [32mGET[39m /
+7:32:29 PM [32mGET[39m /content
+7:32:31 PM [32mGET[39m /users
+7:45:54 PM [32mGET[39m /
+7:45:54 PM [32mGET[39m /content
+7:45:58 PM [32mGET[39m /users
+7:47:10 PM [32mGET[39m /
+7:47:10 PM [32mGET[39m /content
+7:47:12 PM [32mGET[39m /users
+7:49:27 PM [32mGET[39m /
+7:49:27 PM [32mGET[39m /content
+7:49:50 PM [32mGET[39m /users
+####################
+Database connection  empty
+Server enviorment PROD
+####################
+7:57:09 PM [32mGET[39m /
+7:57:09 PM [32mGET[39m /content
+7:57:12 PM [32mGET[39m /users
+7:57:14 PM [31mDELETE[39m /users
+Error deleting user: update or delete on table "users" violates foreign key constraint "userid" on table "roles"
+8:01:23 PM [32mGET[39m /
+8:01:23 PM [32mGET[39m /content
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+8:01:36 PM [32mGET[39m /
+8:01:36 PM [32mGET[39m /content
+8:01:40 PM [32mGET[39m /users
+8:01:42 PM [31mDELETE[39m /users
+User deleted successfully
+8:01:43 PM [32mGET[39m /
+8:01:43 PM [32mGET[39m /content
+8:01:46 PM [32mGET[39m /users
+8:08:22 PM [32mGET[39m /
+8:08:22 PM [32mGET[39m /content
+8:09:02 PM [32mGET[39m /
+8:09:02 PM [32mGET[39m /content
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+8:41:29 PM [32mGET[39m /
+8:41:29 PM [32mGET[39m /content
+8:41:38 PM [32mGET[39m /comments/9
+8:44:36 PM [32mGET[39m /
+8:44:36 PM [32mGET[39m /content
+8:44:38 PM [32mGET[39m /comments/9
+8:47:38 PM [32mGET[39m /
+8:47:38 PM [32mGET[39m /content
+8:47:41 PM [32mGET[39m /comments/9
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+9:08:01 PM [32mGET[39m /
+9:08:01 PM [32mGET[39m /content
+9:08:05 PM [32mGET[39m /comments/9
+9:08:06 PM [33mPOST[39m /comment
+User created successfully
+9:10:13 PM [32mGET[39m /
+9:10:13 PM [32mGET[39m /content
+9:10:17 PM [32mGET[39m /comments/9
+9:10:19 PM [33mPOST[39m /comment
+User created successfully
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+9:11:36 PM [32mGET[39m /
+9:11:36 PM [32mGET[39m /content
+9:11:39 PM [32mGET[39m /comments/9
+9:11:40 PM [33mPOST[39m /comment
+comment created successfully
+9:11:42 PM [32mGET[39m /
+9:11:42 PM [32mGET[39m /content
+9:11:46 PM [32mGET[39m /comments/9
+9:11:47 PM [33mPOST[39m /comment
+comment created successfully
+9:11:48 PM [32mGET[39m /
+9:11:48 PM [32mGET[39m /content
+9:11:54 PM [32mGET[39m /comments/9
+9:11:55 PM [33mPOST[39m /comment
+comment created successfully
+9:11:57 PM [32mGET[39m /
+9:11:58 PM [32mGET[39m /content
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+9:14:37 PM [32mGET[39m /
+9:14:37 PM [32mGET[39m /content
+9:14:39 PM [32mGET[39m /comments/9
+9:14:40 PM [33mPOST[39m /comment
+comment created successfully
+9:14:41 PM [32mGET[39m /
+9:14:42 PM [32mGET[39m /content
+9:17:49 PM [32mGET[39m /
+9:17:49 PM [32mGET[39m /content
+9:17:52 PM [32mGET[39m /comments/9
+9:21:46 PM [32mGET[39m /
+9:21:46 PM [32mGET[39m /content
+9:21:49 PM [32mGET[39m /comments/9
+9:22:42 PM [33mPOST[39m /comment
+comment created successfully
+9:22:43 PM [32mGET[39m /
+9:22:43 PM [32mGET[39m /content
+9:22:47 PM [32mGET[39m /comments/9
+9:22:59 PM [33mPOST[39m /comment
+comment created successfully
+9:23:00 PM [32mGET[39m /
+9:23:01 PM [32mGET[39m /content
+9:23:03 PM [32mGET[39m /comments/9
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+9:41:16 PM [32mGET[39m /
+9:41:16 PM [32mGET[39m /content
+9:41:23 PM [32mGET[39m /myComments/5
+9:45:11 PM [32mGET[39m /
+9:45:11 PM [32mGET[39m /content
+9:45:14 PM [32mGET[39m /myComments/5
+9:48:53 PM [32mGET[39m /
+9:48:53 PM [32mGET[39m /content
+9:48:56 PM [32mGET[39m /myComments/5
+9:49:27 PM [32mGET[39m /
+9:49:27 PM [32mGET[39m /content
+9:49:29 PM [32mGET[39m /myComments/5
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+9:54:58 PM [32mGET[39m /
+9:54:58 PM [32mGET[39m /content
+9:55:00 PM [32mGET[39m /myComments/5
+9:55:03 PM [31mDELETE[39m /comment
+Error deleting Content: relation "public.comment" does not exist
+####################
+Server enviorment PROD
+####################
+Database connection  empty
+9:55:25 PM [32mGET[39m /
+9:55:25 PM [32mGET[39m /content
+9:55:28 PM [32mGET[39m /myComments/5
+9:55:30 PM [31mDELETE[39m /comment
+comment deleted successfully
+9:55:33 PM [32mGET[39m /
+9:55:34 PM [32mGET[39m /content
+9:55:36 PM [32mGET[39m /comments/9
+9:55:37 PM [32mGET[39m /myComments/5
+9:55:40 PM [31mDELETE[39m /comment
+comment deleted successfully
+9:55:41 PM [32mGET[39m /
+9:55:41 PM [32mGET[39m /content
+9:55:46 PM [32mGET[39m /myComments/5
+9:55:48 PM [31mDELETE[39m /comment
+comment deleted successfully
+9:55:49 PM [32mGET[39m /
+9:55:50 PM [32mGET[39m /content
+9:55:54 PM [32mGET[39m /myComments/5
+9:55:56 PM [31mDELETE[39m /comment
+comment deleted successfully
+9:55:57 PM [32mGET[39m /
+9:55:57 PM [32mGET[39m /content
+9:56:12 PM [32mGET[39m /myComments/5
+9:56:14 PM [31mDELETE[39m /comment
+comment deleted successfully
+9:56:15 PM [32mGET[39m /
+9:56:15 PM [32mGET[39m /content
+9:56:20 PM [32mGET[39m /myComments/5
+9:56:23 PM [31mDELETE[39m /comment
+comment deleted successfully
+9:56:25 PM [32mGET[39m /
+9:56:25 PM [32mGET[39m /content
+9:56:30 PM [32mGET[39m /myComments/5

@@ -37,6 +37,30 @@ class DBManager {
             return role;
     }
 
+    async getUsers() {
+        const client = new pg.Client(connectionString);
+        let users = null;
+        try {
+            await client.connect();
+            const sql = "SELECT userid, username, email FROM users";
+
+            const output = await client.query(sql);
+            if(output && output.rows){
+                    users = output.rows;
+            }
+
+        } catch (error) {
+            console.error('Error getting users:', error);
+            // TODO: Error handling?? Remember that this is a module separate from your server
+            SuperLogger.log("Error getting user: " + error.message, SuperLogger.LOGGING_LEVELS.ERROR);
+            throw error; // Rethrow the error to handle it elsewhere
+        } finally {
+            client.end(); // Always disconnect from the database.
+        }
+
+        return users;
+    }
+
 
     async updateUser(user) {
         const client = new pg.Client(this.#credentials);
@@ -66,18 +90,20 @@ class DBManager {
         return user;
     }
 
-    async deleteUser(user) {
+    async deleteUser(userid) {
         const client = new pg.Client(this.#credentials);
 
         try {
             await client.connect();
-            const output = await client.query('DELETE FROM "public"."users" WHERE id = $1;', [user.id]);
+            const output1 = await client.query('DELETE FROM "public"."roles" WHERE userid = $1;', [userid]);
+            const output2 = await client.query('DELETE FROM "public"."users" WHERE userid = $1;', [userid]);
+
 
             // Client.Query returns an object of type pg.Result
             // Of special interest are the rows and rowCount properties of this object.
 
             // TODO: Did the user get deleted?
-            if (output.rowCount > 0) {
+            if (output1.rowCount>0 && output2.rowCount>0) {
                 SuperLogger.log("User deleted successfully", SuperLogger.LOGGING_LEVELS.INFO);
             } else {
                 SuperLogger.log("User deletion failed", SuperLogger.LOGGING_LEVELS.ERROR);
@@ -91,7 +117,7 @@ class DBManager {
             client.end(); // Always disconnect from the database.
         }
 
-        return user;
+        return userid;
     }
 
     async createUser(user) {
@@ -280,8 +306,106 @@ class DBManager {
 
         return user;
     }
-}
 
+
+    async getComments(itemid){
+        const client = new pg.Client(connectionString);
+        let comments = [];
+        try {
+            await client.connect()
+            const sql = "SELECT * FROM comments WHERE itemid = $1";
+            const params = [itemid];
+
+            const output = await client.query(sql, params);
+            if(output && output.rows){
+                    comments = output.rows;
+            }
+
+        } catch (error) {
+            console.log(error)
+        } finally {
+            client.end(); // Always disconnect from the database.
+        }
+        return comments;
+    }
+    async getMyComments(userid){
+        const client = new pg.Client(connectionString);
+        let comments = [];
+        try {
+            await client.connect()
+            const sql = "SELECT * FROM comments WHERE userid = $1";
+            const params = [userid];
+
+            const output = await client.query(sql, params);
+            if(output && output.rows){
+                    comments = output.rows;
+            }
+
+        } catch (error) {
+            console.log(error)
+        } finally {
+            client.end(); // Always disconnect from the database.
+        }
+        return comments;
+    }
+
+    async addComment(userid, itemid, comment) {
+        const client = new pg.Client(this.#credentials);
+        let id = null;
+        try {
+            await client.connect();
+            const output = await client.query('INSERT INTO "public"."comments"("userid", "itemid", "comment") VALUES($1, $2, $3::Text) RETURNING id;', [userid, itemid, comment]);
+
+            // Client.Query returns an object of type pg.Result
+            // Of special interest are the rows and rowCount properties of this object.
+
+            if (output.rows.length == 1) {
+                // We stored the user in the DB.
+                id = output.rows[0].id;
+                SuperLogger.log("comment created successfully", SuperLogger.LOGGING_LEVELS.INFO);
+            }
+
+        } catch (error) {
+            console.error('Error creating comment:', error);
+            // TODO: Error handling?? Remember that this is a module separate from your server
+            SuperLogger.log("Error creating comment: " + error.message, SuperLogger.LOGGING_LEVELS.ERROR);
+            throw error; // Rethrow the error to handle it elsewhere
+        } finally {
+            client.end(); // Always disconnect from the database.
+        }
+
+        return id;
+    }
+
+    async deleteComment(id) {
+        const client = new pg.Client(this.#credentials);
+
+        try {
+            await client.connect();
+            const output = await client.query('DELETE FROM "public"."comments" WHERE id = $1;', [id]);
+
+            // Client.Query returns an object of type pg.Result
+            // Of special interest are the rows and rowCount properties of this object.
+
+            // TODO: Did the user get deleted?
+            if (output.rowCount > 0) {
+                SuperLogger.log("comment deleted successfully", SuperLogger.LOGGING_LEVELS.INFO);
+            } else {
+                SuperLogger.log("comment deletion failed", SuperLogger.LOGGING_LEVELS.ERROR);
+            }
+        } catch (error) {
+            console.error('Error deleting Content:', error);
+            // TODO: Error handling?? Remember that this is a module separate from your server
+            SuperLogger.log("Error deleting Content: " + error.message, SuperLogger.LOGGING_LEVELS.ERROR);
+            throw error; // Rethrow the error to handle it elsewhere
+        } finally {
+            client.end(); // Always disconnect from the database.
+        }
+
+        return id;
+    }
+
+}
     let connectionString = process.env.DB_CONNECTIONSTRING_LOCAL;
     if (process.env.ENVIORMENT != "local") {
         connectionString = process.env.DB_CONNECTIONSTRING_PROD;
