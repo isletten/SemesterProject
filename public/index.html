@@ -217,7 +217,7 @@ button:hover {
         <button id="updateBtn">Oppdater</button>
     </div>
 
-    <div id="showContent" class="hidden">:</div>
+    <div id="showContent" class="hidden"></div>
     <div id="showUsers" class="hidden"></div>
     <div id="myPage" class="hidden">Mine kommentarer:</div>
 
@@ -253,10 +253,15 @@ button:hover {
         window.onload = async () => {
             //home.classList.add("hidden");
             let uid = localStorage.getItem("uid");
+            let currentPage = localStorage.getItem("currentPage");
             if (uid) {
                 loginRole=uid.split(":")[1];
-            await getContent();
+            if(currentPage){
+                showView(currentPage)
+            }else{
                 showView("home");
+            }
+            await getContent();
                 nav.classList.remove("hidden");
             if (loginRole === "admin"){
                 usersBtn.classList.remove("hidden");
@@ -369,27 +374,15 @@ button:hover {
         }
 
         usersBtn.onclick = function(){
+            showUsers.innerHTML="";
             showView("users");
-            getUsers();
+            //getUsers();
+
         }
 
         myPageBtn.onclick = async function(){
+            myPage.innerHTML="";
             showView("myPage");
-            let myComments = await getMyComments();
-            
-            for(let comment of myComments){
-                let div = document.createElement("div");
-                div.innerHTML=comment.comment;
-                myPage.appendChild(div);
-                let deleteBtn = document.createElement("button");
-                deleteBtn.innerHTML="Slett";
-                let id = comment.id;
-                myPage.appendChild(deleteBtn)
-;                deleteBtn.onclick = async function(){
-                    const response = await deleteComment(id);
-                }
-            }
-            console.log(myComments)
         }
 
         async function deleteComment(id){
@@ -483,8 +476,10 @@ button:hover {
                 home.appendChild (button);
                 let title = item.title;
                 let text = item.text;
-                button.onclick = function(){
-                   showContentBox(itemid, title, text);
+                button.onclick = async function(){
+                    console.log("heiheihei")
+                   await showContentBox(itemid, title, text);
+                   localStorage.setItem("item", JSON.stringify({itemid, title, text}));
                 }
             }
 
@@ -612,7 +607,7 @@ button:hover {
             }
                 }
 
-        function showView (view){
+        async function showView (view){
             if (view==="createUserForm"){
                 loginForm.classList.add("hidden");
                 createUserForm.classList.remove("hidden");
@@ -637,6 +632,7 @@ button:hover {
                 showContent.classList.add("hidden");
                 showUsers.classList.add("hidden");
                 myPage.classList.add("hidden");
+                localStorage.setItem("currentPage", "home");
             }
             if (view==="homeAdmin"){
                 loginForm.classList.add("hidden");
@@ -644,6 +640,7 @@ button:hover {
                 homeAdmin.classList.remove("hidden");
                 showUsers.classList.add("hidden");
                 myPage.classList.add("hidden");
+                localStorage.setItem("currentPage", "homeAdmin");
             }
             if (view==="addForm"){
                 loginForm.classList.add("hidden");
@@ -652,6 +649,7 @@ button:hover {
                 addForm.classList.remove("hidden");
                 showUsers.classList.add("hidden");
                 myPage.classList.add("hidden");
+                localStorage.setItem("currentPage", "home");
             }
             if (view==="showContent"){
                 loginForm.classList.add("hidden");
@@ -661,6 +659,9 @@ button:hover {
                 editForm.classList.add("hidden");
                 showUsers.classList.add("hidden");
                 myPage.classList.add("hidden");
+                let item = JSON.parse(localStorage.getItem("item"));
+                localStorage.setItem("currentPage", "showContent");
+                await showContentBox(item.itemid, item.title, item.text);
             }
             if (view==="editContent"){
                 loginForm.classList.add("hidden");
@@ -670,8 +671,10 @@ button:hover {
                 editForm.classList.remove("hidden");
                 showUsers.classList.add("hidden");
                 myPage.classList.add("hidden");
+                localStorage.setItem("currentPage", "editContent");
             }
             if (view==="users"){
+                getUsers();
                 loginForm.classList.add("hidden");
                 home.classList.add("hidden");
                 homeAdmin.classList.add("hidden");
@@ -679,6 +682,7 @@ button:hover {
                 editForm.classList.add("hidden");
                 showUsers.classList.remove("hidden");
                 myPage.classList.add("hidden");
+                localStorage.setItem("currentPage", "users");
             }
             if (view==="myPage"){
                 loginForm.classList.add("hidden");
@@ -688,6 +692,23 @@ button:hover {
                 editForm.classList.add("hidden");
                 showUsers.classList.add("hidden");
                 myPage.classList.remove("hidden");
+                localStorage.setItem("currentPage", "myPage");
+
+                let myComments = await getMyComments();
+
+                for(let comment of myComments){
+                    let div = document.createElement("div");
+                    div.innerHTML=comment.comment;
+                    myPage.appendChild(div);
+                    let deleteBtn = document.createElement("button");
+                    deleteBtn.innerHTML="Slett";
+                    let id = comment.id;
+                    myPage.appendChild(deleteBtn)
+    ;                deleteBtn.onclick = async function(){
+                        const response = await deleteComment(id);
+                    }
+            }
+            console.log(myComments)
             }
         }
 
