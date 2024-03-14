@@ -28,7 +28,6 @@ class DBManager {
             }
             catch(error) {
                 console.error('Error updating user:', error);
-                // TODO: Error handling?? Remember that this is a module separate from your server
                 SuperLogger.log("Error updating user: " + error.message, SuperLogger.LOGGING_LEVELS.ERROR);
                 throw error; // Rethrow the error to handle it elsewhere
             } finally {
@@ -51,7 +50,6 @@ class DBManager {
 
         } catch (error) {
             console.error('Error getting users:', error);
-            // TODO: Error handling?? Remember that this is a module separate from your server
             SuperLogger.log("Error getting user: " + error.message, SuperLogger.LOGGING_LEVELS.ERROR);
             throw error; // Rethrow the error to handle it elsewhere
         } finally {
@@ -69,10 +67,6 @@ class DBManager {
             await client.connect();
             const output = await client.query('UPDATE "public"."users" SET "name" = $1, "email" = $2, "password" = $3 WHERE id = $4;', [user.name, user.email, user.pswHash, user.id]);
 
-            // Client.Query returns an object of type pg.Result
-            // Of special interest are the rows and rowCount properties of this object.
-
-            // TODO: Did we update the user?
             if (output.rowCount > 0) {
                 SuperLogger.log("User updated successfully", SuperLogger.LOGGING_LEVELS.INFO);
             } else {
@@ -98,11 +92,6 @@ class DBManager {
             const output1 = await client.query('DELETE FROM "public"."roles" WHERE userid = $1;', [userid]);
             const output2 = await client.query('DELETE FROM "public"."users" WHERE userid = $1;', [userid]);
 
-
-            // Client.Query returns an object of type pg.Result
-            // Of special interest are the rows and rowCount properties of this object.
-
-            // TODO: Did the user get deleted?
             if (output1.rowCount>0 && output2.rowCount>0) {
                 SuperLogger.log("User deleted successfully", SuperLogger.LOGGING_LEVELS.INFO);
             } else {
@@ -110,7 +99,6 @@ class DBManager {
             }
         } catch (error) {
             console.error('Error deleting user:', error);
-            // TODO: Error handling?? Remember that this is a module separate from your server
             SuperLogger.log("Error deleting user: " + error.message, SuperLogger.LOGGING_LEVELS.ERROR);
             throw error; // Rethrow the error to handle it elsewhere
         } finally {
@@ -127,11 +115,7 @@ class DBManager {
             await client.connect();
             const output = await client.query('INSERT INTO "public"."users"("username", "email", "password") VALUES($1::Text, $2::Text, $3::Text) RETURNING userid;', [user.name, user.email, user.pswHash]);
 
-            // Client.Query returns an object of type pg.Result
-            // Of special interest are the rows and rowCount properties of this object.
-
             if (output.rows.length == 1) {
-                // We stored the user in the DB.
                 user.id = output.rows[0].userid;
                await this.userRole(user.id, "basic")
                 SuperLogger.log("User created successfully", SuperLogger.LOGGING_LEVELS.INFO);
@@ -139,7 +123,6 @@ class DBManager {
 
         } catch (error) {
             console.error('Error creating user:', error);
-            // TODO: Error handling?? Remember that this is a module separate from your server
             SuperLogger.log("Error creating user: " + error.message, SuperLogger.LOGGING_LEVELS.ERROR);
             throw error; // Rethrow the error to handle it elsewhere
         } finally {
@@ -159,18 +142,13 @@ class DBManager {
             await client.connect();
             const output = await client.query('INSERT INTO "public"."content"("title", "text") VALUES($1::Text, $2::Text) RETURNING id;', [title, text]);
 
-            // Client.Query returns an object of type pg.Result
-            // Of special interest are the rows and rowCount properties of this object.
-
             if (output.rows.length == 1) {
-                // We stored the user in the DB.
                cont.id= output.rows[0].id;
                 SuperLogger.log("User created successfully", SuperLogger.LOGGING_LEVELS.INFO);
             }
 
         } catch (error) {
             console.error('Error adding content:', error);
-            // TODO: Error handling?? Remember that this is a module separate from your server
             SuperLogger.log("Error adding content: " + error.message, SuperLogger.LOGGING_LEVELS.ERROR);
             throw error; // Rethrow the error to handle it elsewhere
         } finally {
@@ -231,10 +209,6 @@ class DBManager {
             await client.connect();
             const output = await client.query('DELETE FROM "public"."content" WHERE id = $1;', [id]);
 
-            // Client.Query returns an object of type pg.Result
-            // Of special interest are the rows and rowCount properties of this object.
-
-            // TODO: Did the user get deleted?
             if (output.rowCount > 0) {
                 SuperLogger.log("Content deleted successfully", SuperLogger.LOGGING_LEVELS.INFO);
             } else {
@@ -242,7 +216,6 @@ class DBManager {
             }
         } catch (error) {
             console.error('Error deleting Content:', error);
-            // TODO: Error handling?? Remember that this is a module separate from your server
             SuperLogger.log("Error deleting Content: " + error.message, SuperLogger.LOGGING_LEVELS.ERROR);
             throw error; // Rethrow the error to handle it elsewhere
         } finally {
@@ -259,10 +232,6 @@ class DBManager {
             await client.connect();
             const output = await client.query('UPDATE "public"."content" SET "title" = $1, "text" = $2 WHERE id = $3;', [title, text, id]);
 
-            // Client.Query returns an object of type pg.Result
-            // Of special interest are the rows and rowCount properties of this object.
-
-            // TODO: Did we update the user?
             if (output.rowCount > 0) {
                 SuperLogger.log("Content updated successfully", SuperLogger.LOGGING_LEVELS.INFO);
             } else {
@@ -270,7 +239,6 @@ class DBManager {
             }
         } catch (error) {
             console.error('Error updating Content:', error);
-            // TODO: Error handling?? Remember that this is a module separate from your server
             SuperLogger.log("Error updating Content: " + error.message, SuperLogger.LOGGING_LEVELS.ERROR);
             throw error; // Rethrow the error to handle it elsewhere
         } finally {
@@ -297,7 +265,6 @@ class DBManager {
 
         } catch (error) {
             console.error('Error getting user:', error);
-            // TODO: Error handling?? Remember that this is a module separate from your server
             SuperLogger.log("Error getting user: " + error.message, SuperLogger.LOGGING_LEVELS.ERROR);
             throw error; // Rethrow the error to handle it elsewhere
         } finally {
@@ -356,18 +323,13 @@ class DBManager {
             await client.connect();
             const output = await client.query('INSERT INTO "public"."comments"("userid", "itemid", "comment") VALUES($1, $2, $3::Text) RETURNING id;', [userid, itemid, comment]);
 
-            // Client.Query returns an object of type pg.Result
-            // Of special interest are the rows and rowCount properties of this object.
-
             if (output.rows.length == 1) {
-                // We stored the user in the DB.
                 id = output.rows[0].id;
                 SuperLogger.log("comment created successfully", SuperLogger.LOGGING_LEVELS.INFO);
             }
 
         } catch (error) {
             console.error('Error creating comment:', error);
-            // TODO: Error handling?? Remember that this is a module separate from your server
             SuperLogger.log("Error creating comment: " + error.message, SuperLogger.LOGGING_LEVELS.ERROR);
             throw error; // Rethrow the error to handle it elsewhere
         } finally {
@@ -384,10 +346,6 @@ class DBManager {
             await client.connect();
             const output = await client.query('DELETE FROM "public"."comments" WHERE id = $1;', [id]);
 
-            // Client.Query returns an object of type pg.Result
-            // Of special interest are the rows and rowCount properties of this object.
-
-            // TODO: Did the user get deleted?
             if (output.rowCount > 0) {
                 SuperLogger.log("comment deleted successfully", SuperLogger.LOGGING_LEVELS.INFO);
             } else {
@@ -395,7 +353,6 @@ class DBManager {
             }
         } catch (error) {
             console.error('Error deleting Content:', error);
-            // TODO: Error handling?? Remember that this is a module separate from your server
             SuperLogger.log("Error deleting Content: " + error.message, SuperLogger.LOGGING_LEVELS.ERROR);
             throw error; // Rethrow the error to handle it elsewhere
         } finally {

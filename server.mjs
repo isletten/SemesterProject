@@ -41,7 +41,6 @@ server.post("/login", async (req, res, next) => {
             }
             res.status(200).send(JSON.stringify(data));
         }else{
-            // feil passord
             const data = {
                 msg: "Feil Passord",
                 code: 401
@@ -49,7 +48,6 @@ server.post("/login", async (req, res, next) => {
             res.status(401).send(JSON.stringify())
         }
     }else{
-        // feil e-post
         const data = {
             msg: "Feil epost",
             code: 401
@@ -63,9 +61,6 @@ server.post("/login", async (req, res, next) => {
 server.post("/register", async (req, res) => {
     try {
         const { name, email, pswHash } = req.body;
-        // Your validation logic here
-        
-        // Assuming you have a createUser method in storageManager.mjs
         const newUser = await dbm.createUser({ name, email, pswHash });
         res.status(201).json(newUser);
     } catch (error) {
@@ -78,8 +73,6 @@ server.post("/content", async (req, res) => {
     try {
         const { title, text } = req.body;
         console.log(title)
-        
-        // Assuming you have a createUser method in storageManager.mjs
         const addContent = await dbm.addContent(title, text);
         if (addContent.id){
             res.status(200).end();
@@ -94,8 +87,6 @@ server.post("/content", async (req, res) => {
 
 server.get("/content", async (req, res) => {
     try {
-        
-        // Assuming you have a createUser method in storageManager.mjs
         const getContent = await dbm.getContent();
         console.log(getContent)
         if (getContent){
@@ -112,7 +103,6 @@ server.get("/content", async (req, res) => {
 server.delete("/content", async (req, res) => {
     try {
         let id = req.body.id;
-        // Assuming you have a createUser method in storageManager.mjs
         const response = await dbm.deleteContent(id);
         console.log(response)
         if (response){
@@ -129,7 +119,6 @@ server.delete("/content", async (req, res) => {
 server.put("/content", async (req, res) => {
     try {
         let {id,title,text} = req.body;
-        // Assuming you have a createUser method in storageManager.mjs
         const response = await dbm.updateContent(id,title,text);
         console.log(response)
         if (response){
@@ -145,8 +134,6 @@ server.put("/content", async (req, res) => {
 
 server.get("/users", async (req, res) => {
     try {
-        
-        // Assuming you have a createUser method in storageManager.mjs
         const getUsers = await dbm.getUsers();
         console.log(getUsers)
         if (getUsers){
@@ -163,7 +150,6 @@ server.get("/users", async (req, res) => {
 server.delete("/users", async (req, res) => {
     try {
         let userid = req.body.userid;
-        // Assuming you have a createUser method in storageManager.mjs
         const response = await dbm.deleteUser(userid);
         console.log(response)
         if (response){
@@ -179,8 +165,6 @@ server.delete("/users", async (req, res) => {
 
 server.get("/comments/:itemid", async (req, res) => {
     try {
-        
-        // Assuming you have a createUser method in storageManager.mjs
         const getComments = await dbm.getComments(req.params.itemid);
         console.log(getComments)
         if (getComments){
@@ -196,8 +180,6 @@ server.get("/comments/:itemid", async (req, res) => {
 
 server.get("/myComments/:userid", async (req, res) => {
     try {
-        
-        // Assuming you have a createUser method in storageManager.mjs
         const getMyComments = await dbm.getMyComments(req.params.userid);
         console.log(getMyComments)
         if (getMyComments){
@@ -214,8 +196,6 @@ server.get("/myComments/:userid", async (req, res) => {
 server.post("/comment", async (req, res) => {
     try {
         const {userid, itemid, comment} = req.body;
-        
-        // Assuming you have a createUser method in storageManager.mjs
         const id = await dbm.addComment(userid, itemid, comment);
         if (id){
             res.status(200).end();
@@ -231,7 +211,6 @@ server.post("/comment", async (req, res) => {
 server.delete("/comment", async (req, res) => {
     try {
         let id = req.body.id;
-        // Assuming you have a createUser method in storageManager.mjs
         const response = await dbm.deleteComment(id);
         console.log(response)
         if (response){

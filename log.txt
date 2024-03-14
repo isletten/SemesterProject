@@ -2654,3 +2654,63 @@ Content updated successfully
 9:10:17 PM [32mGET[39m /comments/15
 9:10:25 PM [32mGET[39m /
 9:10:25 PM [32mGET[39m /content
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+2:43:39 AM [32mGET[39m /
+2:43:39 AM [32mGET[39m /content
+2:43:45 AM [32mGET[39m /comments/9
+2:44:51 AM [33mPUT[39m /content
+Content updated successfully
+2:44:53 AM [32mGET[39m /comments/9
+2:45:21 AM [33mPUT[39m /content
+Content updated successfully
+2:45:22 AM [32mGET[39m /comments/9
+2:45:43 AM [32mGET[39m /comments/15
+2:47:07 AM [33mPUT[39m /content
+Content updated successfully
+2:47:09 AM [32mGET[39m /comments/15
+2:47:40 AM [33mPUT[39m /content
+Content updated successfully
+2:47:41 AM [32mGET[39m /comments/15
+2:48:04 AM [32mGET[39m /comments/14
+3:01:23 AM [32mGET[39m /comments/15
+3:02:05 AM [33mPUT[39m /content
+Content updated successfully
+3:02:06 AM [32mGET[39m /comments/15
+3:02:44 AM [32mGET[39m /comments/18
+3:03:18 AM [33mPUT[39m /content
+Content updated successfully
+3:03:19 AM [32mGET[39m /comments/18
+3:03:27 AM [32mGET[39m /content
+3:03:45 AM [32mGET[39m /comments/17
+3:03:57 AM [33mPUT[39m /content
+Content updated successfully
+3:03:59 AM [32mGET[39m /comments/17
+3:05:37 AM [33mPUT[39m /content
+Content updated successfully
+3:05:38 AM [32mGET[39m /comments/17
+3:12:09 AM [33mPOST[39m /content
+User created successfully
+3:12:11 AM [32mGET[39m /
+3:12:11 AM [32mGET[39m /content
+3:12:16 AM [32mGET[39m /comments/20
+3:12:49 AM [33mPUT[39m /content
+Content updated successfully
+3:12:50 AM [32mGET[39m /comments/20
+3:13:03 AM [32mGET[39m /comments/17
+3:13:06 AM [32mGET[39m /content
+3:13:11 AM [32mGET[39m /comments/9
+3:13:17 AM [32mGET[39m /comments/14
+3:13:22 AM [32mGET[39m /comments/18
+3:14:32 AM [33mPUT[39m /content
+Content updated successfully
+3:14:33 AM [32mGET[39m /comments/18
+3:14:58 AM [32mGET[39m /users
+3:15:00 AM [32mGET[39m /comments/17
+3:15:12 AM [32mGET[39m /comments/19
+####################
+Server enviorment PROD
+####################
+Database connection  empty

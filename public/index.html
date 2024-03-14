@@ -55,10 +55,10 @@ nav button{
 #createUserForm {
     margin: auto; 
     padding: 20px;
-    border: 2px solid #d1c4ac; /* Add a border */
-    border-radius: 10px; /* Add rounded corners */
-    background-color: #fdfcf6; /* Set background color */
-    max-width: 400px; /* Limit the maximum width of the form */
+    border: 2px solid #d1c4ac; 
+    border-radius: 10px; 
+    background-color: #fdfcf6; 
+    max-width: 400px; 
     width:80vw;
 }
 #addForm,
@@ -66,18 +66,17 @@ nav button{
 #showContent,
 #showUsers, 
 #myPage {
-    margin: 10vh auto; /* Center the form horizontally and vertically */
+    margin: 10vh auto; 
     padding: 20px;
-    border: 2px solid #d1c4ac; /* Add a border */
-    border-radius: 10px; /* Add rounded corners */
-    background-color: #fdfcf6; /* Set background color */
+    border: 2px solid #d1c4ac; 
+    border-radius: 10px; 
+    background-color: #fdfcf6; 
     width: 80vw;
 }
 
 #loginForm h1,
 #createUserForm h1 {
-    text-align: center; /* Center the heading */
-   
+    text-align: center; 
 }
 
 
@@ -94,8 +93,8 @@ nav button{
     display: block;
     width: 100%;
     margin-bottom: 10px;
-    padding: 10px; /* Increase padding for input fields */
-    box-sizing: border-box; /* Include padding in the width calculation */
+    padding: 10px; 
+    box-sizing: border-box; 
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -111,15 +110,15 @@ nav button{
     display: block;
     text-align: center;
     margin-top: 10px;
-    text-decoration: none; /* Remove default underline */
-    cursor: pointer; /* Add cursor pointer */
+    text-decoration: none; 
+    cursor: pointer; 
     color: darkslategrey;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 #loginForm a:hover,
 #createUserForm a:hover{
-    text-decoration: underline; /* Add underline on hover */
+    text-decoration: underline; 
 }
 
 button:hover{
@@ -147,8 +146,8 @@ button:hover {
     height: 70px; 
     font-size: 16px;
     border-radius: 10px;
-    background-color: #fdfcf6; /* Set background color */
-    border: 2px solid #d1c4ac; /* Add a border */
+    background-color: #fdfcf6; 
+    border: 2px solid #d1c4ac; 
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
     
 }
@@ -162,10 +161,10 @@ button:hover {
 }
 
 @media screen and (max-width: 600px) {
-    /* Adjust styles for screens smaller than 600px */
+   
     #home {
-        flex-direction: column; /* Stack items vertically */
-        align-items: flex-start; /* Align items to the start */
+        flex-direction: column; 
+        align-items: flex-start; 
         display: flex;
         margin-top: 10px;
     }
@@ -287,19 +286,16 @@ button:hover {
                     headers: {
                         "Content-Type": "application/json",
                     },
-                    body: JSON.stringify(user), // Change 'data' to 'user'
+                    body: JSON.stringify(user), 
                 });
 
                 if (response.ok) {
-                    // Handle success, e.g., show a success message
                     alert("User registered successfully!");
                     showView("logInForm");
                 } else {
-                    // Handle error response, e.g., show an error message
                     alert("Failed to register user. Please try again.");
                 }
             } catch (error) {
-                // Handle fetch error, e.g., show an error message
                 console.error("Error registering user:", error);
                 alert("Failed to register user. Please try again later.");
             }
@@ -762,7 +758,6 @@ button:hover {
 
 
 
-        /* When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar */
         let prevScrollPos = window.pageYOffset;
         window.onscroll = function() {
         let currentScrollPos = window.pageYOffset;

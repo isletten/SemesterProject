@@ -59,9 +59,7 @@ USER_API.post('/login', (req, res) => {
     if (!user || user.pswHash !== password) {
         return res.status(HTTPCodes.ClientSideErrorRespons.Unauthorized).json({ message: 'Invalid credentials' });
     }
-
     // Authentication successful
-    // You might want to use a more secure authentication method like JWT instead of storing user state in session
     req.session.user = user;
     res.status(HTTPCodes.SuccesfullRespons.Ok).json({ message: 'Authentication successful' });
 });
