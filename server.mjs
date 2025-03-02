@@ -4,6 +4,7 @@ import USER_API from './routes/usersRoute.mjs'; // This is where we have defined
 import SuperLogger from './modules/SuperLogger.mjs';
 import printDeveloperStartupInportantInformationMSG from "./modules/developerHelpers.mjs";
 import dbm from "./modules/storageManager.mjs";
+import { HTTPCodes } from "../modules/httpConstants.mjs";
 
 
 // Creating an instance of the server
@@ -28,31 +29,19 @@ server.use("/user", USER_API);
 
 server.post("/login", async (req, res, next) => {
     const {email, pswHash} = req.body;
-    console.log (req.body)
     const user = await dbm.getUserFromEmail(email);
     if(user){
         if(user.password === pswHash){
             const role = await dbm.getUserRole(user.userid);
-            console.log(role);
-            const data = {
-                msg: "Bruker funnet",
-                code: 200,
-                data: {userID: user.userid, email: user.email, role: role.role}
-            }
-            res.status(200).send(JSON.stringify(data));
+           
+            res.status(HTTPCodes.SuccesfullRespons.Ok).json({ message: 'User found', data: {userID: user.userid, email: user.email, role: role.role}})
         }else{
-            const data = {
-                msg: "Feil Passord",
-                code: 401
-            }
-            res.status(401).send(JSON.stringify())
+
+            res.status(HTTPCodes.ClientSideErrorRespons.Unauthorized).json({ message: 'Wrong password'})
         }
     }else{
-        const data = {
-            msg: "Feil epost",
-            code: 401
-        }
-        res.status(401).send(JSON.stringify())
+       
+        res.status(HTTPCodes.ClientSideErrorRespons.Unauthorized).json({ message: 'Email not found'})
     }
 
 });
@@ -65,38 +54,36 @@ server.post("/register", async (req, res) => {
         res.status(201).json(newUser);
     } catch (error) {
         console.error('Error registering user:', error);
-        res.status(500).json({ message: 'Failed to register user' });
+        res.status(HTTPCodes.ServerErrorRespons.InternalError).json({ message: 'Failed to register user' });
     }
 });
 
 server.post("/content", async (req, res) => {
     try {
         const { title, text } = req.body;
-        console.log(title)
         const addContent = await dbm.addContent(title, text);
         if (addContent.id){
-            res.status(200).end();
+            res.status(HTTPCodes.SuccesfullRespons.Ok).end();
         }else{
-            res.status(500).end();
+            res.status(HTTPCodes.ServerErrorRespons.InternalError).end();
         }
     } catch (error) {
         console.error('Error adding content:', error);
-        res.status(500).json({ message: 'Failed to add content' });
+        res.status(HTTPCodes.ServerErrorRespons.InternalError).json({ message: 'Failed to add content' });
     }
 });
 
 server.get("/content", async (req, res) => {
     try {
         const getContent = await dbm.getContent();
-        console.log(getContent)
         if (getContent){
-            res.status(200).json(getContent).end();
+            res.status(HTTPCodes.SuccesfullRespons.Ok).json(getContent).end();
         }else{
-            res.status(500).end();
+            res.status(HTTPCodes.ServerErrorRespons.InternalError).end();
         }
     } catch (error) {
         console.error('Error adding content:', error);
-        res.status(500).json({ message: 'Failed to add content' });
+        res.status(HTTPCodes.ServerErrorRespons.InternalError).json({ message: 'Failed to add content' });
     }
 });
 
@@ -104,15 +91,14 @@ server.delete("/content", async (req, res) => {
     try {
         let id = req.body.id;
         const response = await dbm.deleteContent(id);
-        console.log(response)
         if (response){
-            res.status(200).end();
+            res.status(HTTPCodes.SuccesfullRespons.Ok).end();
         }else{
-            res.status(500).end();
+            res.status(HTTPCodes.ServerErrorRespons.InternalError).end();
         }
     } catch (error) {
         console.error('Error deleting content:', error);
-        res.status(500).json({ message: 'Failed to delete content' });
+        res.status(HTTPCodes.ServerErrorRespons.InternalError).json({ message: 'Failed to delete content' });
     }
 });
 
@@ -120,30 +106,28 @@ server.put("/content", async (req, res) => {
     try {
         let {id,title,text} = req.body;
         const response = await dbm.updateContent(id,title,text);
-        console.log(response)
         if (response){
-            res.status(200).json(response).end();
+            res.status(HTTPCodes.SuccesfullRespons.Ok).json(response).end();
         }else{
-            res.status(500).end();
+            res.status(HTTPCodes.ServerErrorRespons.InternalError).end();
         }
     } catch (error) {
         console.error('Error deleting content:', error);
-        res.status(500).json({ message: 'Failed to delete content' });
+        res.status(HTTPCodes.ServerErrorRespons.InternalError).json({ message: 'Failed to delete content' });
     }
 });
 
 server.get("/users", async (req, res) => {
     try {
         const getUsers = await dbm.getUsers();
-        console.log(getUsers)
         if (getUsers){
-            res.status(200).json(getUsers).end();
+            res.status(HTTPCodes.SuccesfullRespons.Ok).json(getUsers).end();
         }else{
-            res.status(500).end();
+            res.status(HTTPCodes.ServerErrorRespons.InternalError).end();
         }
     } catch (error) {
         console.error('Error showing users:', error);
-        res.status(500).json({ message: 'Failed to show users' });
+        res.status(HTTPCodes.ServerErrorRespons.InternalError).json({ message: 'Failed to show users' });
     }
 });
 
@@ -151,45 +135,42 @@ server.delete("/users", async (req, res) => {
     try {
         let userid = req.body.userid;
         const response = await dbm.deleteUser(userid);
-        console.log(response)
         if (response){
-            res.status(200).end();
+            res.status(HTTPCodes.SuccesfullRespons.Ok).end();
         }else{
-            res.status(500).end();
+            res.status(HTTPCodes.ServerErrorRespons.InternalError).end();
         }
     } catch (error) {
         console.error('Error deleting user:', error);
-        res.status(500).json({ message: 'Failed to delete user' });
+        res.status(HTTPCodes.ServerErrorRespons.InternalError).json({ message: 'Failed to delete user' });
     }
 });
 
 server.get("/comments/:itemid", async (req, res) => {
     try {
         const getComments = await dbm.getComments(req.params.itemid);
-        console.log(getComments)
         if (getComments){
-            res.status(200).json(getComments).end();
+            res.status(HTTPCodes.SuccesfullRespons.Ok).json(getComments).end();
         }else{
-            res.status(500).end();
+            res.status(HTTPCodes.ServerErrorRespons.InternalError).end();
         }
     } catch (error) {
         console.error('Error showing users:', error);
-        res.status(500).json({ message: 'Failed to show users' });
+        res.status(HTTPCodes.ServerErrorRespons.InternalError).json({ message: 'Failed to show users' });
     }
 });
 
 server.get("/myComments/:userid", async (req, res) => {
     try {
         const getMyComments = await dbm.getMyComments(req.params.userid);
-        console.log(getMyComments)
         if (getMyComments){
-            res.status(200).json(getMyComments).end();
+            res.status(HTTPCodes.SuccesfullRespons.Ok).json(getMyComments).end();
         }else{
-            res.status(500).end();
+            res.status(HTTPCodes.ServerErrorRespons.InternalError).end();
         }
     } catch (error) {
         console.error('Error showing my comments:', error);
-        res.status(500).json({ message: 'Failed to show my comments' });
+        res.status(HTTPCodes.ServerErrorRespons.InternalError).json({ message: 'Failed to show my comments' });
     }
 });
 
@@ -198,13 +179,13 @@ server.post("/comment", async (req, res) => {
         const {userid, itemid, comment} = req.body;
         const id = await dbm.addComment(userid, itemid, comment);
         if (id){
-            res.status(200).end();
+            res.status(HTTPCodes.SuccesfullRespons.Ok).end();
         }else{
-            res.status(500).end();
+            res.status(HTTPCodes.ServerErrorRespons.InternalError).end();
         }
     } catch (error) {
         console.error('Error adding content:', error);
-        res.status(500).json({ message: 'Failed to add content' });
+        res.status(HTTPCodes.ServerErrorRespons.InternalError).json({ message: 'Failed to add content' });
     }
 });
 
@@ -212,15 +193,14 @@ server.delete("/comment", async (req, res) => {
     try {
         let id = req.body.id;
         const response = await dbm.deleteComment(id);
-        console.log(response)
         if (response){
-            res.status(200).end();
+            res.status(HTTPCodes.SuccesfullRespons.Ok).end();
         }else{
-            res.status(500).end();
+            res.status(HTTPCodes.ServerErrorRespons.InternalError).end();
         }
     } catch (error) {
         console.error('Error deleting content:', error);
-        res.status(500).json({ message: 'Failed to delete content' });
+        res.status(HTTPCodes.ServerErrorRespons.InternalError).json({ message: 'Failed to delete content' });
     }
 });
 
