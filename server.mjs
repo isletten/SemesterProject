@@ -4,7 +4,7 @@ import USER_API from './routes/usersRoute.mjs'; // This is where we have defined
 import SuperLogger from './modules/SuperLogger.mjs';
 import printDeveloperStartupInportantInformationMSG from "./modules/developerHelpers.mjs";
 import dbm from "./modules/storageManager.mjs";
-import { HTTPCodes } from "../modules/httpConstants.mjs";
+import { HTTPCodes } from "./modules/httpConstants.mjs";
 
 
 // Creating an instance of the server

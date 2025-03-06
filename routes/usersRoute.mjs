@@ -4,8 +4,7 @@ import User from '../modules/user.mjs';
 import { HTTPCodes } from "../modules/httpConstants.mjs";
 import SuperLogger from "../modules/SuperLogger.mjs";
 import authenticateUser from '../modules/authMiddleware.mjs'; 
-
-
+import dbm from "../modules/storageManager.mjs";
 const USER_API = express.Router();
 USER_API.use(express.json());
 
@@ -33,7 +32,7 @@ USER_API.post('/register', async (req, res, next) => {
 
     try {
         // Check if user already exists with the same email
-        const existingUser = await DBManager.getUserFromEmail(email);
+        const existingUser = await dbm.getUserFromEmail(email);
         if (existingUser) {
             return res.status(HTTPCodes.ClientSideErrorRespons.Conflict).json({ message: 'User already exists with this email' });
         }
@@ -41,7 +40,7 @@ USER_API.post('/register', async (req, res, next) => {
         // If user does not exist, create a new user
         const newUser = new User(name, email, password);
         await newUser.save();
-        res.status(HTTPCodes.SuccesfullRespons.Created).json({ message: 'User created successfully' });
+        res.status(HTTPCodes.SuccesfullRespons.Ok).json({ message: 'User created successfully' });
     } catch (error) {
         console.error('Error creating user:', error);
         res.status(HTTPCodes.ServerErrorRespons.InternalError).json({ message: 'Failed to create user' });

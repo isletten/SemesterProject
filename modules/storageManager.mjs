@@ -37,7 +37,7 @@ class DBManager {
     }
 
     async getUsers() {
-        const client = new pg.Client(connectionString);
+        const client = new pg.Client(this.#credentials);
         let users = null;
         try {
             await client.connect();
@@ -159,7 +159,7 @@ class DBManager {
     }
     
     async getUserRole(userid){
-        const client = new pg.Client(connectionString);
+        const client = new pg.Client(this.#credentials);
         let role = null;
         try {
             await client.connect()
@@ -182,7 +182,7 @@ class DBManager {
     }
 
     async getContent(){
-        const client = new pg.Client(connectionString);
+        const client = new pg.Client(this.#credentials);
         let content = null;
         try {
             await client.connect()
@@ -249,7 +249,7 @@ class DBManager {
     }
 
     async getUserFromEmail(email) {
-        const client = new pg.Client(connectionString);
+        const client = new pg.Client(this.#credentials);
         let user = null;
         try {
             await client.connect();
@@ -276,7 +276,7 @@ class DBManager {
 
 
     async getComments(itemid){
-        const client = new pg.Client(connectionString);
+        const client = new pg.Client(this.#credentials);
         let comments = [];
         try {
             await client.connect()
@@ -296,7 +296,7 @@ class DBManager {
         return comments;
     }
     async getMyComments(userid){
-        const client = new pg.Client(connectionString);
+        const client = new pg.Client(this.#credentials);
         let comments = [];
         try {
             await client.connect()

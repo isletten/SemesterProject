@@ -50,10 +50,10 @@
         createUserButton.onclick = async function (e) {
             const name = document.getElementById("name").value;
             const email = document.getElementById("email").value;
-            const pswHash = document.getElementById("pswHash").value;
-            const user = { name, email, pswHash };
+            const pswHash = document.getElementById("password").value;
+            const user = { name, email, password };
             try {
-                const response = await fetch("/register", {
+                const response = await fetch("/user/register", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
