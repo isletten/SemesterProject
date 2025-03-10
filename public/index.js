@@ -50,7 +50,7 @@
         createUserButton.onclick = async function (e) {
             const name = document.getElementById("name").value;
             const email = document.getElementById("email").value;
-            const pswHash = document.getElementById("password").value;
+            const password = document.getElementById("pswHash").value;
             const user = { name, email, password };
             try {
                 const response = await fetch("/user/register", {
