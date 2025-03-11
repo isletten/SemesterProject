@@ -1,7 +1,7 @@
 import DBManager from './storageManager.mjs';
 
 class User {
-    constructor(email, pswHash, name, id = null) {
+    constructor(name, email, pswHash, id = null) {
       this.email = email;
       this.pswHash = pswHash;
       this.name = name;

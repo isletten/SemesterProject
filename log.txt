@@ -2823,3 +2823,31 @@ Server enviorment PROD
 10:53:15 AM [32mGET[39m /
 10:53:28 AM [32mGET[39m /HNAP1/
 10:53:28 AM [32mGET[39m /
+Server enviorment PROD
+####################
+Database connection  empty
+####################
+11:23:39 AM [32mGET[39m /
+11:23:39 AM [32mGET[39m /index.css
+11:23:39 AM [32mGET[39m /index.js
+11:24:07 AM [33mPOST[39m /user/register
+11:24:07 AM [33mPOST[39m /user/register
+User updated successfully
+User created successfully
+User updated successfully
+User created successfully
+11:29:08 AM [33mPOST[39m /login
+11:29:53 AM [33mPOST[39m /login
+11:34:29 AM [33mPOST[39m /login
+11:34:30 AM [32mGET[39m /content
+11:34:36 AM [32mGET[39m /users
+11:34:40 AM [31mDELETE[39m /users
+User deleted successfully
+11:34:42 AM [32mGET[39m /
+11:34:42 AM [32mGET[39m /index.css
+11:34:42 AM [32mGET[39m /index.js
+11:34:42 AM [32mGET[39m /users
+11:34:42 AM [32mGET[39m /content
+11:34:50 AM [32mGET[39m /myComments/1
+11:34:55 AM [32mGET[39m /myComments/1
+11:35:09 AM [33mPOST[39m /login
