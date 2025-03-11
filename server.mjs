@@ -6,14 +6,12 @@ import printDeveloperStartupInportantInformationMSG from "./modules/developerHel
 import dbm from "./modules/storageManager.mjs";
 import { HTTPCodes } from "./modules/httpConstants.mjs";
 
-
 // Creating an instance of the server
 const server = express();
 server.use(express.json());
 // Selecting a port for the server to use.
 const port = (process.env.PORT || 8080);
 server.set('port', port);
-
 
 // Enable logging for server
 const logger = new SuperLogger();
@@ -23,40 +21,8 @@ printDeveloperStartupInportantInformationMSG();
 // Defining a folder that will contain static files.
 server.use(express.static('public'));
 
-
 // Telling the server to use the USER_API (all urls that uses this code will have to have the /user after the base address)
 server.use("/user", USER_API);
-
-server.post("/login", async (req, res, next) => {
-    const {email, pswHash} = req.body;
-    const user = await dbm.getUserFromEmail(email);
-    if(user){
-        if(user.password === pswHash){
-            const role = await dbm.getUserRole(user.userid);
-           
-            res.status(HTTPCodes.SuccesfullRespons.Ok).json({ message: 'User found', data: {userID: user.userid, email: user.email, role: role.role}})
-        }else{
-
-            res.status(HTTPCodes.ClientSideErrorRespons.Unauthorized).json({ message: 'Wrong password'})
-        }
-    }else{
-       
-        res.status(HTTPCodes.ClientSideErrorRespons.Unauthorized).json({ message: 'Email not found'})
-    }
-
-});
-
-// Add a route for user registration
-server.post("/register", async (req, res) => {
-    try {
-        const { name, email, pswHash } = req.body;
-        const newUser = await dbm.createUser({ name, email, pswHash });
-        res.status(201).json(newUser);
-    } catch (error) {
-        console.error('Error registering user:', error);
-        res.status(HTTPCodes.ServerErrorRespons.InternalError).json({ message: 'Failed to register user' });
-    }
-});
 
 server.post("/content", async (req, res) => {
     try {
@@ -117,35 +83,6 @@ server.put("/content", async (req, res) => {
     }
 });
 
-server.get("/users", async (req, res) => {
-    try {
-        const getUsers = await dbm.getUsers();
-        if (getUsers){
-            res.status(HTTPCodes.SuccesfullRespons.Ok).json(getUsers).end();
-        }else{
-            res.status(HTTPCodes.ServerErrorRespons.InternalError).end();
-        }
-    } catch (error) {
-        console.error('Error showing users:', error);
-        res.status(HTTPCodes.ServerErrorRespons.InternalError).json({ message: 'Failed to show users' });
-    }
-});
-
-server.delete("/users", async (req, res) => {
-    try {
-        let userid = req.body.userid;
-        const response = await dbm.deleteUser(userid);
-        if (response){
-            res.status(HTTPCodes.SuccesfullRespons.Ok).end();
-        }else{
-            res.status(HTTPCodes.ServerErrorRespons.InternalError).end();
-        }
-    } catch (error) {
-        console.error('Error deleting user:', error);
-        res.status(HTTPCodes.ServerErrorRespons.InternalError).json({ message: 'Failed to delete user' });
-    }
-});
-
 server.get("/comments/:itemid", async (req, res) => {
     try {
         const getComments = await dbm.getComments(req.params.itemid);
@@ -203,7 +140,6 @@ server.delete("/comment", async (req, res) => {
         res.status(HTTPCodes.ServerErrorRespons.InternalError).json({ message: 'Failed to delete content' });
     }
 });
-
 
 // Start the server 
 server.listen(server.get('port'), function () {

@@ -83,11 +83,10 @@
         })
 
         loginButton.onclick = async function (e) {
-            console.log("hei")
             const email = document.getElementById("loginEmail").value;
             const pswHash = document.getElementById("loginPswHash").value;
             const credentials = { email, pswHash };
-            const response = await postTo("/login", credentials);
+            const response = await postTo("/user/login", credentials);
             if (response.ok) {
                 const user= await response.json();
                 console.log(user);
@@ -161,7 +160,6 @@
         usersBtn.onclick = function(){
             showUsers.innerHTML="<h2>Brukere:</h2>";
             showView("users");
-            //getUsers();
         }
 
         myPageBtn.onclick = async function(){
@@ -198,7 +196,7 @@
         }
 
         async function getUsers() {
-            const response = await fetch("/users", {
+            const response = await fetch("/user/all", {
                 method: "GET", 
                 headers: {
                     "Content-Type": "application/json",
@@ -253,6 +251,7 @@
         }
 
         function displayContent(content) {
+            home.innerHTML="";
             for (let item of content) {
                 let itemid = item.id;
                 let button = document.createElement("button");
@@ -304,7 +303,7 @@
         }
 
         async function deleteUser(userid){
-            const response = await fetch ("/users", {
+            const response = await fetch ("/user", {
                 method: "delete",
                 headers: {
                     "Content-Type": "application/json",
@@ -316,7 +315,6 @@
                 location.reload();
             }
         }
-
 
        async function showContentBox(itemid, title, text){
             showContent.innerHTML="";
@@ -338,7 +336,7 @@
                     }
                     let likeBtn = document.createElement("button");
                     likeBtn.innerHTML = "Lagre";
-                    showContent.appendChild(likeBtn);
+                    //showContent.appendChild(likeBtn);
                     if(loginRole === "admin"){
                         let editBtn = document.createElement("button");
                         editBtn.innerHTML = "Rediger";
@@ -357,11 +355,9 @@
                         deleteBtn.onclick = function(){
                             deleteContent(itemid);
                         }
-
                     }
 
                    let comments = await getComments(itemid);
-                   console.log(comments);
                    let commentHeader = document.createElement("h3")
                    commentHeader.innerHTML = "Legg til kommentar:";
                    showContent.appendChild(commentHeader);
@@ -473,7 +469,6 @@
                 let item = JSON.parse(localStorage.getItem("item"));
                 localStorage.setItem("currentPage", "showContent");
                 await showContentBox(item.itemid, item.title, item.text);
-
             }
             if (view==="editContent"){
                 loginForm.classList.add("hidden");
@@ -483,8 +478,7 @@
                 editForm.classList.remove("hidden");
                 showUsers.classList.add("hidden");
                 myPage.classList.add("hidden");
-                localStorage.setItem("currentPage", "editContent");
-                
+                localStorage.setItem("currentPage", "editContent"); 
             }
             if (view==="users"){
                 getUsers();
@@ -529,14 +523,10 @@
             }
         }
 
-       
-
         add.onclick = ()=>{
             console.log("legg til");
             showView("addForm");
         }
-
-
 
         let prevScrollPos = window.pageYOffset;
         window.onscroll = function() {

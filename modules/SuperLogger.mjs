@@ -24,7 +24,6 @@ const colorize = (method) => {
 
 //#endregion
 
-
 class SuperLogger {
 
     // These are arbetrary values to make it possible for us to sort our logg messages. 
@@ -73,7 +72,6 @@ class SuperLogger {
         logger.#writeToLog(msg);
     }
 
-
     // This is our automatic logger, it outputs at a "normal" level
     // It is just a convinent wrapper around the more generic createLimitedRequestLogger function
     createAutoHTTPRequestLogger() {
@@ -98,7 +96,6 @@ class SuperLogger {
             // Finaly we parse our request on to the method that is going to writ the log msg.
             this.#LogHTTPRequest(req, res, next);
         }
-
     }
 
     #LogHTTPRequest(req, res, next) {
@@ -119,6 +116,5 @@ class SuperLogger {
         fs.appendFile("./log.txt", msg, { encoding: "utf8" }, (err) => { });
     }
 }
-
 
 export default SuperLogger

@@ -1,7 +1,6 @@
 import pg from "pg";
 import SuperLogger from "./SuperLogger.mjs";
 
-
 class DBManager {
 
     #credentials = {};
@@ -33,6 +32,7 @@ class DBManager {
             } finally {
                 client.end(); // Always disconnect from the database.
             }
+            
             return role;
     }
 
@@ -58,7 +58,6 @@ class DBManager {
 
         return users;
     }
-
 
     async updateUser(user) {
         const client = new pg.Client(this.#credentials);
@@ -178,6 +177,7 @@ class DBManager {
         } finally {
             client.end(); // Always disconnect from the database.
         }
+
         return role;
     }
 
@@ -199,6 +199,7 @@ class DBManager {
         } finally {
             client.end(); // Always disconnect from the database.
         }
+
         return content;
     }
 
@@ -293,6 +294,7 @@ class DBManager {
         } finally {
             client.end(); // Always disconnect from the database.
         }
+
         return comments;
     }
     async getMyComments(userid){
@@ -313,6 +315,7 @@ class DBManager {
         } finally {
             client.end(); // Always disconnect from the database.
         }
+
         return comments;
     }
 

@@ -10,10 +10,19 @@ USER_API.use(express.json());
 
 const users = [];
 
-USER_API.get('/', (req, res, next) => {
-    SuperLogger.log("Demo of logging tool");
-    SuperLogger.log("A important msg", SuperLogger.LOGGING_LEVELS.CRTICAL);
-})
+USER_API.get('/all', async (req, res, next) => {
+    try {
+        const getUsers = await dbm.getUsers();
+        if (getUsers){
+            res.status(HTTPCodes.SuccesfullRespons.Ok).json(getUsers).end();
+        }else{
+            res.status(HTTPCodes.ServerErrorRespons.InternalError).end();
+        }
+    } catch (error) {
+        console.error('Error showing users:', error);
+        res.status(HTTPCodes.ServerErrorRespons.InternalError).json({ message: 'Failed to show users' });
+    }
+});
 
 // Route to get user info (requires authentication)
 USER_API.get('/profile', authenticateUser, (req, res) => {
@@ -47,20 +56,23 @@ USER_API.post('/register', async (req, res, next) => {
     }
 });
 
-
 // Route to authenticate user
-USER_API.post('/login', (req, res) => {
-    const { email, password } = req.body;
+USER_API.post('/login', async (req, res) => {
+    const {email, pswHash} = req.body;
+    const user = await dbm.getUserFromEmail(email);
+    if(user){
+        if(user.password === pswHash){
+            const role = await dbm.getUserRole(user.userid);
+           
+            res.status(HTTPCodes.SuccesfullRespons.Ok).json({ message: 'User found', data: {userID: user.userid, email: user.email, role: role.role}})
+        }else{
 
-    // Find user by email
-    const user = users.find(user => user.email === email);
-
-    if (!user || user.pswHash !== password) {
-        return res.status(HTTPCodes.ClientSideErrorRespons.Unauthorized).json({ message: 'Invalid credentials' });
+            res.status(HTTPCodes.ClientSideErrorRespons.Unauthorized).json({ message: 'Wrong password'})
+        }
+    }else{
+       
+        res.status(HTTPCodes.ClientSideErrorRespons.Unauthorized).json({ message: 'Email not found'})
     }
-    // Authentication successful
-    req.session.user = user;
-    res.status(HTTPCodes.SuccesfullRespons.Ok).json({ message: 'Authentication successful' });
 });
 
 // Route to update user information
@@ -92,25 +104,16 @@ USER_API.put('/:id', async (req, res) => {
 });
 
 // Route to delete user
-USER_API.delete('/:id', async (req, res) => {
-    const { id } = req.params;
-    
-    // Find user by ID
-    const index = users.findIndex(user => user.id === parseInt(id));
-
-    if (index === -1) {
-        return res.status(HTTPCodes.ClientSideErrorRespons.NotFound).json({ message: 'User not found' });
-    }
-
-    // Delete user from users array
-    const deletedUser = users.splice(index, 1)[0]; // Remove the user from array and get deleted user object
-    
+USER_API.delete('/', async (req, res) => {
     try {
-        // Delete the user
-        await deletedUser.delete();
-        res.status(HTTPCodes.SuccesfullRespons.Ok).json(deletedUser);
+        let userid = req.body.userid;
+        const response = await dbm.deleteUser(userid);
+        if (response){
+            res.status(HTTPCodes.SuccesfullRespons.Ok).end();
+        }else{
+            res.status(HTTPCodes.ServerErrorRespons.InternalError).end();
+        }
     } catch (error) {
-        // Handle user deletion failure
         console.error('Error deleting user:', error);
         res.status(HTTPCodes.ServerErrorRespons.InternalError).json({ message: 'Failed to delete user' });
     }
