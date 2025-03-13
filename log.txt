@@ -2983,3 +2983,28 @@ User created successfully
 8:45:34 PM [33mPOST[39m /user/login
 8:45:36 PM [32mGET[39m /content
 8:45:43 PM [32mGET[39m /myComments/1
+Server enviorment PROD
+####################
+Database connection  empty
+####################
+11:34:22 AM [32mGET[39m /
+11:34:22 AM [32mGET[39m /index.css
+11:34:22 AM [32mGET[39m /index.js
+11:34:22 AM [32mGET[39m /index.css
+11:34:28 AM [32mGET[39m /favicon.ico
+11:35:16 AM [32mGET[39m /
+11:35:16 AM [32mGET[39m /index.css
+11:35:16 AM [32mGET[39m /index.js
+11:35:16 AM [32mGET[39m /content
+11:37:34 AM [32mGET[39m /
+11:37:34 AM [32mGET[39m /css/index.css
+11:37:34 AM [32mGET[39m /index.js
+11:37:34 AM [32mGET[39m /content
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+11:49:17 AM [32mGET[39m /
+11:49:18 AM [32mGET[39m /index.js
+11:49:18 AM [32mGET[39m /css/index.css
+11:49:18 AM [32mGET[39m /content
