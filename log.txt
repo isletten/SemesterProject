@@ -3067,3 +3067,45 @@ comment created successfully
 12:36:23 PM [32mGET[39m /index.css
 12:36:23 PM [32mGET[39m /index.js
 12:36:22 PM [32mGET[39m /
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+1:20:03 PM [32mGET[39m /
+1:20:03 PM [32mGET[39m /index.css
+1:20:03 PM [32mGET[39m /index.js
+1:20:03 PM [32mGET[39m /comments/1
+1:20:03 PM [32mGET[39m /content
+1:20:04 PM [32mGET[39m /favicon.ico
+1:20:16 PM [32mGET[39m /myComments/6
+1:20:24 PM [32mGET[39m /index.css
+1:20:43 PM [32mGET[39m /myComments/6
+1:20:43 PM [32mGET[39m /myComments/6
+1:21:13 PM [33mPOST[39m /user/login
+1:21:19 PM [32mGET[39m /content
+1:21:34 PM [32mGET[39m /user/all
+1:21:58 PM [33mPOST[39m /user/register
+1:22:20 PM [33mPOST[39m /user/register
+User updated successfully
+User created successfully
+1:22:49 PM [33mPOST[39m /user/login
+1:23:01 PM [32mGET[39m /content
+1:23:10 PM [32mGET[39m /comments/1
+1:23:18 PM [33mPOST[39m /comment
+comment created successfully
+1:23:19 PM [32mGET[39m /
+1:23:19 PM [32mGET[39m /index.js
+1:23:19 PM [32mGET[39m /index.css
+1:23:19 PM [32mGET[39m /comments/1
+1:23:19 PM [32mGET[39m /content
+1:23:26 PM [32mGET[39m /myComments/7
+####################
+Server enviorment PROD
+Database connection  empty
+####################
+2:05:07 PM [32mGET[39m /
+2:05:07 PM [32mGET[39m /index.css
+2:05:07 PM [32mGET[39m /index.js
+2:05:18 PM [33mPOST[39m /user/login
+2:05:21 PM [32mGET[39m /content
+2:05:32 PM [32mGET[39m /user/all
