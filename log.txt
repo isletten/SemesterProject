@@ -3008,3 +3008,15 @@ Database connection  empty
 11:49:18 AM [32mGET[39m /index.js
 11:49:18 AM [32mGET[39m /css/index.css
 11:49:18 AM [32mGET[39m /content
+####################
+Database connection  empty
+Server enviorment PROD
+####################
+12:02:10 PM [32mGET[39m /
+12:02:10 PM [32mGET[39m /css/index.css
+12:02:10 PM [32mGET[39m /
+12:02:10 PM [32mGET[39m /index.js
+12:02:14 PM [32mGET[39m /css/index.css
+12:09:44 PM [32mGET[39m /
+12:09:44 PM [32mGET[39m /index.js
+12:09:44 PM [32mGET[39m /css/index.css
